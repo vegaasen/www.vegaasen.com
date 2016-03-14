@@ -1,1 +1,11 @@
+# Computer-stuff
+.DS_Store
+*.swp
 *.zip
+.idea
+
+# Output generated stuff
+*.log
+
+# Project related stuff
+node_modules/
