@@ -1,0 +1,48 @@
+{
+  "name": "vegaasen_com_version6",
+  "version": "0.0.1",
+  "description": "vegaasen.com version 6",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vegaasen/vegaasen_com_version6.git"
+  },
+  "author": "vegard aasen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vegaasen/vegaasen_com_version6/issues"
+  },
+  "homepage": "https://github.com/vegaasen/vegaasen_com_version6",
+  "dependencies": {
+    "angular": "^1.5.8"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "browserify": "^13.1.0",
+    "browserify-ngannotate": "^2.0.0",
+    "del": "^1.1.1",
+    "gulp": "^3.9.1",
+    "gulp-cachebust": "0.0.6",
+    "gulp-concat": "^2.6.0",
+    "gulp-install": "^0.6.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-ng-html2js": "^0.2.2",
+    "gulp-less": "^3.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.4",
+    "gulp-webserver": "^0.9.1",
+    "gulp.spritesmith": "^3.5.3",
+    "jasmine-core": "^2.2.0",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
