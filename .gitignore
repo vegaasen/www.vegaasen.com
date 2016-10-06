@@ -8,4 +8,8 @@
 *.log
 
 # Project related stuff
-node_modules/
+node_modules
+dist
+.tmp
+bower_components
+test
