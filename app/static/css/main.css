@@ -493,11 +493,11 @@ hr {
 }
 
 .hobbies_skiing {
-    background-image: url("/assets/img/hobbies/skiing.jpeg");
+    background-image: url("static/img/hobbies/skiing.jpeg");
 }
 
 .hobbies_biking {
-    background-image: url("/assets/img/hobbies/trail-bike.jpg");
+    background-image: url("static/img/hobbies/trail-bike.jpg");
 }
 
 .with-background {
@@ -506,27 +506,27 @@ hr {
 }
 
 .with-background_iot {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("/assets/img/activities/Iot.png");
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("static/img/activities/Iot.png");
 }
 
 .with-background_angularJs {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("/assets/img/activities/AngularJS.png");
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("static/img/activities/AngularJS.png");
 }
 
 .with-background_raspberryPi {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("/assets/img/activities/raspberry-pi.png");
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("static/img/activities/raspberry-pi.png");
 }
 
 .with-background_android {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("/assets/img/activities/android.png");
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("static/img/activities/android.png");
 }
 
 .with-background_java {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("/assets/img/activities/java.png");
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("static/img/activities/java.png");
 }
 
 .with-background_docker {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("/assets/img/activities/docker.png");
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("static/img/activities/docker.png");
 }
 
 .thumbnails > div {
