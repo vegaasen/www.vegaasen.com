@@ -25,7 +25,7 @@ gulp.task('bower', function () {
         .pipe(install());
 });
 gulp.task('build-css', ['clean'], function () {
-    return gulp.src('./assets/css/*')
+    return gulp.src('./app/css/*')
         .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(cachebust.resources())
@@ -34,7 +34,7 @@ gulp.task('build-css', ['clean'], function () {
 });
 gulp.task('build-template-cache', ['clean'], function () {
     var ngHtml2Js = require("gulp-ng-html2js"), concat = require("gulp-concat");
-    return gulp.src("./partials/*.html")
+    return gulp.src("./app/partials/*.html")
         .pipe(ngHtml2Js({
             moduleName: "todoPartials",
             prefix: "/partials/"
@@ -43,7 +43,7 @@ gulp.task('build-template-cache', ['clean'], function () {
         .pipe(gulp.dest("./dist"));
 });
 gulp.task('jshint', function () {
-    gulp.src('/js/*.js')
+    gulp.src('/app/js/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
@@ -55,12 +55,11 @@ gulp.task('test', function (done) {
 });
 gulp.task('build-js', ['clean'], function () {
     var b = browserify({
-        entries: './js/app.js',
+        entries: './app/js/app.js',
         debug: true,
-        paths: ['./js/controller', './js/service', './js/directive', './js/filter'],
+        paths: ['./app/js/controller', './app/js/service', './app/js/directive', './app/js/filter'],
         transform: [ngAnnotate]
     });
-
     return b.bundle()
         .pipe(source('bundle.js'))
         .pipe(buffer())
@@ -77,7 +76,7 @@ gulp.task('build', ['clean', 'bower', 'build-css', 'build-template-cache', 'jshi
         .pipe(gulp.dest('dist'));
 });
 gulp.task('watch', function () {
-    return gulp.watch(['./index.html', './partials/*.html', './styles/*.*css', './js/**/*.js'], ['build']);
+    return gulp.watch(['./app/index.html', './app/partials/*.html', './app/static/css/*.*css', './app/js/**/*.js', './app/static/js/**/*.js'], ['build']);
 });
 gulp.task('webserver', ['watch', 'build'], function () {
     gulp.src('.')
@@ -97,7 +96,7 @@ gulp.task('dev', ['watch', 'webserver']);
 
 gulp.task('sprite', function () {
 
-    var spriteData = gulp.src('./images/*.png')
+    var spriteData = gulp.src('./app/static/images/*.png')
         .pipe(spritesmith({
             imgName: 'todo-sprite.png',
             cssName: '_todo-sprite.scss',
