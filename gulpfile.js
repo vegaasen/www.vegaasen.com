@@ -25,7 +25,7 @@ gulp.task('bower', function () {
         .pipe(install());
 });
 gulp.task('build-css', ['clean'], function () {
-    return gulp.src('./styles/*')
+    return gulp.src('./assets/css/*')
         .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(cachebust.resources())
@@ -33,9 +33,7 @@ gulp.task('build-css', ['clean'], function () {
         .pipe(gulp.dest('./dist'));
 });
 gulp.task('build-template-cache', ['clean'], function () {
-
     var ngHtml2Js = require("gulp-ng-html2js"), concat = require("gulp-concat");
-
     return gulp.src("./partials/*.html")
         .pipe(ngHtml2Js({
             moduleName: "todoPartials",
@@ -90,7 +88,6 @@ gulp.task('webserver', ['watch', 'build'], function () {
         }));
 });
 gulp.task('dev', ['watch', 'webserver']);
-
 /////////////////////////////////////////////////////////////////////////////////////
 //
 // generates a sprite png and the corresponding sass sprite map.
