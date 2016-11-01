@@ -14,10 +14,13 @@ var gulp = require('gulp'),
     CacheBuster = require('gulp-cachebust');
 var cachebust = new CacheBuster();
 var Server = require('karma').Server;
+
+var config = {
+    publicDir: './public'
+};
+
 gulp.task('clean', function (cb) {
-    del([
-        'dist'
-    ], cb);
+    del([config.publicDir], cb);
 });
 gulp.task('bower', function () {
     var install = require("gulp-install");
@@ -25,12 +28,12 @@ gulp.task('bower', function () {
         .pipe(install());
 });
 gulp.task('build-css', ['clean'], function () {
-    return gulp.src('./app/css/*')
+    return gulp.src('./app/static/css/*')
         .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(cachebust.resources())
         .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest(config.publicDir));
 });
 gulp.task('build-template-cache', ['clean'], function () {
     var ngHtml2Js = require("gulp-ng-html2js"), concat = require("gulp-concat");
@@ -40,7 +43,7 @@ gulp.task('build-template-cache', ['clean'], function () {
             prefix: "/partials/"
         }))
         .pipe(concat("templateCachePartials.js"))
-        .pipe(gulp.dest("./dist"));
+        .pipe(gulp.dest(config.publicDir));
 });
 gulp.task('jshint', function () {
     gulp.src('/app/js/*.js')
@@ -68,12 +71,12 @@ gulp.task('build-js', ['clean'], function () {
         .pipe(uglify())
         .on('error', gutil.log)
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('./dist/js/'));
+        .pipe(gulp.dest(config.publicDir + '/js/'));
 });
 gulp.task('build', ['clean', 'bower', 'build-css', 'build-template-cache', 'jshint', 'build-js'], function () {
-    return gulp.src('index.html')
+    return gulp.src('./app/index.html')
         .pipe(cachebust.references())
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest(config.publicDir));
 });
 gulp.task('watch', function () {
     return gulp.watch(['./app/index.html', './app/partials/*.html', './app/static/css/*.*css', './app/js/**/*.js', './app/static/js/**/*.js'], ['build']);
@@ -83,29 +86,8 @@ gulp.task('webserver', ['watch', 'build'], function () {
         .pipe(webserver({
             livereload: false,
             directoryListing: true,
-            open: "http://localhost:8000/dist/index.html"
+            open: "http://localhost:8000/" + config.publicDir + "/index.html"
         }));
 });
 gulp.task('dev', ['watch', 'webserver']);
-/////////////////////////////////////////////////////////////////////////////////////
-//
-// generates a sprite png and the corresponding sass sprite map.
-// This is not included in the recurring development build and needs to be run separately
-//
-/////////////////////////////////////////////////////////////////////////////////////
-
-gulp.task('sprite', function () {
-
-    var spriteData = gulp.src('./app/static/images/*.png')
-        .pipe(spritesmith({
-            imgName: 'todo-sprite.png',
-            cssName: '_todo-sprite.scss',
-            algorithm: 'top-down',
-            padding: 5
-        }));
-
-    spriteData.css.pipe(gulp.dest('./dist'));
-    spriteData.img.pipe(gulp.dest('./dist'))
-});
-
-gulp.task('default', ['sprite', 'build', 'test']);
+gulp.task('default', ['build']); //skipped test for now..
