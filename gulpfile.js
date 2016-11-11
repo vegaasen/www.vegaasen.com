@@ -1,93 +1,264 @@
-var gulp = require('gulp'),
-    webserver = require('gulp-webserver'),
-    del = require('del'),
-    less = require('gulp-less'),
-    jshint = require('gulp-jshint'),
-    sourcemaps = require('gulp-sourcemaps'),
-    spritesmith = require('gulp.spritesmith'),
-    browserify = require('browserify'),
-    source = require('vinyl-source-stream'),
-    buffer = require('vinyl-buffer'),
-    uglify = require('gulp-uglify'),
-    gutil = require('gulp-util'),
-    ngAnnotate = require('browserify-ngannotate'),
-    CacheBuster = require('gulp-cachebust');
-var cachebust = new CacheBuster();
-var Server = require('karma').Server;
+/**
+ * Build-file for the Frontend-part of Rolf Jonas
+ * Todo: add a server that can be started using Gulp and referencing watches?
+ *
+ * @author vegaasen
+ * @version version 6
+ * @since version 6
+ */
 
-var config = {
-    publicDir: './public'
+/// <binding AfterBuild='default' Clean='clean' ProjectOpened='watch, default' />
+require("es6-promise").polyfill();
+var gulp = require("gulp");
+var del = require("del");
+var webServer = require('gulp-webserver');
+var concat = require("gulp-concat");
+var rename = require("gulp-rename");
+var sourcemaps = require("gulp-sourcemaps");
+var htmlreplace = require("gulp-html-replace");
+var htmlmin = require("gulp-htmlmin");
+var cssnano = require("gulp-cssnano");
+var ngAnnotate = require("gulp-ng-annotate");
+var templateCache = require("gulp-angular-templatecache");
+var uglify = require("gulp-uglify");
+var babel = require("gulp-babel");
+var hash_src = require("gulp-hash-src");
+var env = require("gulp-environments");
+var releaseEnvironment = env.make("release");
+var debugEnvironment = env.make("debug");
+
+var distPath = "dist/";
+var configuration = {
+    cssDistPath: distPath + "css/",
+    jsDistPath: distPath + "app/",
+    templateDistPath: distPath + "app/",
+    imageDistPath: distPath + "images/",
+    fontDistPath: distPath + "fonts/"
 };
 
-gulp.task('clean', function (cb) {
-    del([config.publicDir], cb);
+var jsExtFiles = [
+    "node_modules/babel-polyfill/dist/polyfill.js",
+    "node_modules/jquery/dist/jquery.js",
+    "node_modules/lodash/lodash.js",
+    "node_modules/bootstrap/dist/js/bootstrap.js",
+    "node_modules/angular/angular.js",
+    "node_modules/angular-animate/angular-animate.js",
+    "node_modules/angular-route/angular-route.js",
+    "node_modules/angular-ui-router/release/angular-ui-router.js",
+    "node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js",
+    "node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"
+];
+var jsLibFiles = [
+    "lib/**/*Module.js",
+    "lib/**/*.js"
+];
+var jsAppFiles = [
+    "app/**/*AppModule.js",
+    "app/**/*Module.js",
+    "app/**/*.js"
+];
+var cssSrcFiles = [
+    "node_modules/bootstrap/dist/css/bootstrap-theme.css",
+    "node_modules/bootstrap/dist/css/bootstrap.css",
+    "node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css",
+    "node_modules/font-awesome/css/font-awesome.css",
+    "artifacts/**/*.css",
+    "lib/vegaasen-ng/**/*.css"
+];
+var htmlTemplateSrcFiles = [
+    "app/**/*.html", "!app/index.html"
+];
+var imageSrcFiles = [
+    "artifacts/images/**/*.png",
+    "artifacts/images/**/*.jpg",
+    "artifacts/images/**/*.bmp",
+    "artifacts/images/**/*.gif"
+];
+var fontSrcFiles = [
+    "node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.*",
+    "node_modules/font-awesome/fonts/*.*"
+];
+var servicePaths = releaseEnvironment()
+    ? [
+    "<link id='kda-root-path' href='#{kda-root-path}' rel='kda-path-provider' />",
+    "<link id='system-api-path' href='#{kongsberg-unittracking-app-root-path}' rel='kda-path-provider' />",
+    "<link id='kongsberg-unittracking-app-root-path' href='#{kongsberg-unittracking-app-root-path}' rel='kda-path-provider' />",
+    "<link id='kongsberg-user-management-root-path' href='#{kongsberg-unittracking-app-root-path}' rel='kda-path-provider' />",
+    "<link id='kongsberg-iam-root-path' href='#{kongsberg-iam-root-path} ' rel='kda-path-provider' />"
+]
+    : [
+    "<link id='kda-root-path' href='http://localhost/Kongsberg.UnitTracking/' rel='kda-path-provider' />",
+    "<link id='system-api-path' href='http://localhost/Kongsberg.UnitTracking.Api/' rel='kda-path-provider' />",
+    "<link id='kongsberg-unittracking-app-root-path' href='http://localhost/Kongsberg.UnitTracking.Api/' rel='kda-path-provider' />",
+    "<link id='kongsberg-user-management-root-path' href='http://localhost/Kongsberg.UnitTracking.Api/' rel='kda-path-provider' />",
+    "<link id='kongsberg-iam-root-path' href='http://api.iam.kda.kongsberg.com/public/v1/' rel='kda-path-provider' />"
+];
+
+// *** DEFAULT ***
+
+gulp.task("test", function () {
+    console.log("****STARTING TESTING PHASE****");
+    console.log(releaseEnvironment());
+    console.log(debugEnvironment());
+    console.log("****ENDING TESTING PHASE****");
 });
-gulp.task('bower', function () {
-    var install = require("gulp-install");
-    return gulp.src(['./bower.json'])
-        .pipe(install());
+gulp.task("clean", function () {
+    return del(distPath + "*");
 });
-gulp.task('build-css', ['clean'], function () {
-    return gulp.src('./app/static/css/*')
-        .pipe(sourcemaps.init())
-        .pipe(less())
-        .pipe(cachebust.resources())
-        .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest(config.publicDir));
-});
-gulp.task('build-template-cache', ['clean'], function () {
-    var ngHtml2Js = require("gulp-ng-html2js"), concat = require("gulp-concat");
-    return gulp.src("./app/partials/*.html")
-        .pipe(ngHtml2Js({
-            moduleName: "todoPartials",
-            prefix: "/partials/"
-        }))
-        .pipe(concat("templateCachePartials.js"))
-        .pipe(gulp.dest(config.publicDir));
-});
-gulp.task('jshint', function () {
-    gulp.src('/app/js/*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
-});
-gulp.task('test', function (done) {
-    new Server({
-        configFile: __dirname + '/karma.conf.js',
-        singleRun: true
-    }, done).start();
-});
-gulp.task('build-js', ['clean'], function () {
-    var b = browserify({
-        entries: './app/js/app.js',
-        debug: true,
-        paths: ['./app/js/controller', './app/js/service', './app/js/directive', './app/js/filter'],
-        transform: [ngAnnotate]
-    });
-    return b.bundle()
-        .pipe(source('bundle.js'))
-        .pipe(buffer())
-        .pipe(cachebust.resources())
-        .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(uglify())
-        .on('error', gutil.log)
-        .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(config.publicDir + '/js/'));
-});
-gulp.task('build', ['clean', 'bower', 'build-css', 'build-template-cache', 'jshint', 'build-js'], function () {
-    return gulp.src('./app/index.html')
-        .pipe(cachebust.references())
-        .pipe(gulp.dest(config.publicDir));
-});
-gulp.task('watch', function () {
-    return gulp.watch(['./app/index.html', './app/partials/*.html', './app/static/css/*.*css', './app/js/**/*.js', './app/static/js/**/*.js'], ['build']);
-});
-gulp.task('webserver', ['watch', 'build'], function () {
+gulp.task("build", ["build-js", "build-css", "build-html", "build-images", "build-fonts"]);
+gulp.task("default", ["clean", "build"]);
+gulp.task('develop', ['watch', 'webServer']);
+
+// *** WEBSERVER ***
+
+gulp.task('webServer', ['watch', 'build'], function () {
     gulp.src('.')
-        .pipe(webserver({
+        .pipe(webServer({
             livereload: false,
             directoryListing: true,
-            open: "http://localhost:8000/" + config.publicDir + "/index.html"
+            open: "http://localhost:8000/" + distPath + "index.html"
         }));
 });
-gulp.task('dev', ['watch', 'webserver']);
-gulp.task('default', ['build']); //skipped test for now..
+
+// *** WATCHES ***
+
+gulp.task("watch-js", function () {
+    return gulp.watch(["app/**/*.js", "lib/vegaasen-ng/**/*.js"], ["build-js-app"]);
+});
+gulp.task("watch-html", function () {
+    return gulp.watch(["app/**/*.html"], ["build-html"]);
+});
+gulp.task("watch-css", function () {
+    return gulp.watch(["artifacts/**/*.css"], ["build-css"]);
+});
+gulp.task("watch", ["build", "watch-js", "watch-html", "watch-css"]);
+
+// *** JS ***
+
+gulp.task("clean-js", ["clean-js-app", "clean-js-lib", "clean-js-ext"]);
+gulp.task("build-js", ["build-js-app", "build-js-lib", "build-js-ext"], function () {
+});
+
+gulp.task("clean-js-app", function () {
+    return del([distPath + "app.js", configuration.jsDistPath + "app.min.js", configuration.jsDistPath + "app.min.js.map"]);
+});
+gulp.task("build-js-app", ["clean-js-app"], function () {
+    var sourceRoot = "../../app";
+    return gulp.src(jsAppFiles)
+        .pipe(sourcemaps.init())
+        .pipe(concat("app.min.js"))
+        .pipe(ngAnnotate())
+        .pipe(babel({presets: ['es2015'], compact: false}))
+        .pipe(releaseEnvironment(uglify()))
+        .pipe(sourcemaps.write(".", {includeContent: true, sourceRoot: sourceRoot}))
+        .pipe(gulp.dest(configuration.jsDistPath));
+});
+
+gulp.task("clean-js-lib", function () {
+    return del([configuration.jsDistPath + "lib.js", configuration.jsDistPath + "lib.min.js", configuration.jsDistPath + "lib.min.js.map"]);
+});
+gulp.task("build-js-lib", ["clean-js-lib"], function () {
+    // var sourceRoot = releaseEnvironment() ? "../lib" : __dirname + "/lib";
+    var sourceRoot = "../../lib";
+    return gulp.src(jsLibFiles)
+        .pipe(sourcemaps.init())
+        .pipe(concat("lib.min.js"))
+        .pipe(ngAnnotate())
+        .pipe(babel({presets: ['es2015']}))
+        //.pipe(gulp.dest(configuration.jsDistPath))
+        .pipe(releaseEnvironment(uglify()))
+        //.pipe(rename("lib.min.js"))
+        .pipe(sourcemaps.write(".", {includeContent: false, sourceRoot: sourceRoot}))
+        .pipe(gulp.dest(configuration.jsDistPath));
+});
+
+gulp.task("clean-js-ext", function () {
+    return del([configuration.jsDistPath + "ext.min.js"]);
+});
+gulp.task("build-js-ext", ["clean-js-ext"], function () {
+    return gulp.src(jsExtFiles)
+        .pipe(concat("ext.min.js"))
+        //.pipe(gulp.dest(configuration.jsDistPath))
+        .pipe(releaseEnvironment(uglify()))
+        //.pipe(rename("ext.min.js"))
+        .pipe(gulp.dest(configuration.jsDistPath));
+});
+
+
+// *** HTML ***
+
+gulp.task("clean-html", ["clean-html-templates", "clean-html-index"]);
+gulp.task("build-html", ["build-html-templates", "build-html-index"]);
+
+gulp.task("clean-html-index", function () {
+    return del([distPath + "index.html"]);
+});
+gulp.task("build-html-index", ["clean-html-index", "build-html-templates", "build-js"], function () {
+    return gulp.src("app/index.html")
+        .pipe(rename("index.html"))
+        .pipe(htmlreplace({
+            remove: [],
+            js: ["app/ext.min.js", "app/lib.min.js", "app/templates.js", "app/app.min.js"],
+            css: ["css/styles.min.css"],
+            path: servicePaths
+        }))
+        .pipe(hash_src({build_dir: "./dist", src_path: "app", query_name: "", verbose: false}))
+        .pipe(releaseEnvironment(htmlmin({collapseWhitespace: true, conservativeCollapse: true})))
+        .pipe(gulp.dest(distPath));
+});
+
+gulp.task("clean-html-templates", function () {
+    return del([configuration.templateDistPath + "**/*.html"]);
+});
+gulp.task("build-html-templates", ["clean-html-templates"], function () {
+    return gulp.src(htmlTemplateSrcFiles)
+        .pipe(releaseEnvironment(htmlmin({collapseWhitespace: true, conservativeCollapse: true})))
+        .pipe(templateCache({root: "app/", standalone: true}))
+        .pipe(gulp.dest(configuration.templateDistPath));
+});
+
+// *** CSS ***
+
+gulp.task("clean-css", function () {
+    return del([configuration.cssDistPath + "*.css"]);
+});
+gulp.task("build-css", ["clean-css"], function () {
+    return gulp.src(cssSrcFiles)
+        .pipe(sourcemaps.init())
+        .pipe(concat("styles.min.css"))
+        .pipe(releaseEnvironment(cssnano({safe: true})))
+        //.pipe(rename("styles.min.css"))
+        .pipe(sourcemaps.write("."))
+        .pipe(gulp.dest(configuration.cssDistPath));
+});
+
+// *** Images ***
+
+gulp.task("clean-images", function () {
+    return del([
+        configuration.imageDistPath + "*.png",
+        configuration.imageDistPath + "*.jpg",
+        configuration.imageDistPath + "*.bmp",
+        configuration.imageDistPath + "*.gif"
+    ]);
+});
+gulp.task("build-images", ["clean-images"], function () {
+    return gulp.src(imageSrcFiles)
+        .pipe(gulp.dest(configuration.imageDistPath));
+});
+
+// *** Fonts ***
+
+gulp.task("clean-fonts", function () {
+    return del([
+        configuration.fontDistPath + "*.eot",
+        configuration.fontDistPath + "*.svg",
+        configuration.fontDistPath + "*.ttf",
+        configuration.fontDistPath + "*.woff",
+        configuration.fontDistPath + "*.woff2"
+    ]);
+});
+gulp.task("build-fonts", ["clean-fonts"], function () {
+    return gulp.src(fontSrcFiles)
+        .pipe(gulp.dest(configuration.fontDistPath));
+});
