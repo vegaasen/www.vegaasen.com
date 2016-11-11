@@ -15,7 +15,8 @@
         $stateProvider.state({
                 name: "home",
                 url: '/home',
-                templateUrl: 'app/whatever/whatever.html'
+                templateUrl: 'app/default/defaultController.html',
+                controller: 'app/default/defaultController.js'
             }
         );
         $provide.constant("languageResources", {});
