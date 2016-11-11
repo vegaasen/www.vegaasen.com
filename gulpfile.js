@@ -1,6 +1,5 @@
 /**
- * Build-file for the Frontend-part of Rolf Jonas
- * Todo: add a server that can be started using Gulp and referencing watches?
+ * Build-file for the Frontend
  *
  * @author vegaasen
  * @version version 6
@@ -77,21 +76,6 @@ var imageSrcFiles = [
 var fontSrcFiles = [
     "node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.*",
     "node_modules/font-awesome/fonts/*.*"
-];
-var servicePaths = releaseEnvironment()
-    ? [
-    "<link id='kda-root-path' href='#{kda-root-path}' rel='kda-path-provider' />",
-    "<link id='system-api-path' href='#{kongsberg-unittracking-app-root-path}' rel='kda-path-provider' />",
-    "<link id='kongsberg-unittracking-app-root-path' href='#{kongsberg-unittracking-app-root-path}' rel='kda-path-provider' />",
-    "<link id='kongsberg-user-management-root-path' href='#{kongsberg-unittracking-app-root-path}' rel='kda-path-provider' />",
-    "<link id='kongsberg-iam-root-path' href='#{kongsberg-iam-root-path} ' rel='kda-path-provider' />"
-]
-    : [
-    "<link id='kda-root-path' href='http://localhost/Kongsberg.UnitTracking/' rel='kda-path-provider' />",
-    "<link id='system-api-path' href='http://localhost/Kongsberg.UnitTracking.Api/' rel='kda-path-provider' />",
-    "<link id='kongsberg-unittracking-app-root-path' href='http://localhost/Kongsberg.UnitTracking.Api/' rel='kda-path-provider' />",
-    "<link id='kongsberg-user-management-root-path' href='http://localhost/Kongsberg.UnitTracking.Api/' rel='kda-path-provider' />",
-    "<link id='kongsberg-iam-root-path' href='http://api.iam.kda.kongsberg.com/public/v1/' rel='kda-path-provider' />"
 ];
 
 // *** DEFAULT ***
@@ -199,8 +183,7 @@ gulp.task("build-html-index", ["clean-html-index", "build-html-templates", "buil
         .pipe(htmlreplace({
             remove: [],
             js: ["app/ext.min.js", "app/lib.min.js", "app/templates.js", "app/app.min.js"],
-            css: ["css/styles.min.css"],
-            path: servicePaths
+            css: ["css/styles.min.css"]
         }))
         .pipe(hash_src({build_dir: "./dist", src_path: "app", query_name: "", verbose: false}))
         .pipe(releaseEnvironment(htmlmin({collapseWhitespace: true, conservativeCollapse: true})))

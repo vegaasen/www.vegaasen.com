@@ -1,18 +1,37 @@
 <!DOCTYPE html>
-<html ng-app="VegaasenApp">
-<head lang="en">
-    <meta charset="utf-8">
-    <meta name="keywords" content="vegardaasen vegaasen developer java cool notSoCool nub awesome"/>
-    <meta name="author" content="the-bed-wetter@201[0-9]{,1}"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimal-ui"/>
-    <link rel="shortcut icon" href="static/ico/favicon.gif">
-    <title>Vegard Aasen - #sysdev #devops #java #js #web #coffee #running #biking #randonee #skiing #fun</title>
-    <!--STYLE-->
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.css"/>
-    <link rel="stylesheet" href="static/css/main.scss">
+<html ng-app="vegaasen-app">
+<head>
+    <title>vegaasen.com</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- build:css -->
+    <!-- endbuild -->
+    <!-- build:path-->
+    <!-- endbuild -->
 </head>
 <body>
-<h1>Hello, mordi.</h1>
+<!-- build:remove -->
+<div style="z-index: 100000; position: fixed; top: 0; width: 100%; height: 100%; background-color: hsla(0, 0%, 100%, .8);">
+    <div style="height: 50%;"></div>
+    <div style="width: 500px; height: 250px; overflow: hidden; margin: -125px auto auto auto; border: 1px dotted black; padding: 0 1em;">
+
+        <h1 style="color: red;">This is the template for index.html. You can't run the application from this page</h1>
+        <p>Steps to run the app</p>
+        <ol>
+            <li>If you're a developer: Build the frontend package using gulp</li>
+            <li>Further information in the solutions' readme.md file</li>
+            <li>Navigate to <a href="../dist/">../dist/index.html</a></li>
+        </ol>
+    </div>
+</div>
+<!-- endbuild -->
+<div ng-cloak>
+    <div ng-include="'app/artifacts/header.html'"></div>
+    <div ui-view></div>
+    <div ng-include="'app/artifacts/footer.html'"></div>
+</div>
+<!-- build:js -->
+<!-- endbuild -->
 </body>
 </html>
