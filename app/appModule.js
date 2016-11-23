@@ -16,9 +16,16 @@
                 name: "home",
                 url: '/home',
                 templateUrl: 'app/default/defaultController.html',
-                controller: 'app/default/defaultController.js'
+                controller: 'DefaultController'
             }
         );
         $provide.constant("languageResources", {});
     });
+    app.controller('DefaultController', defaultController);
+
+    function defaultController($scope) {
+        $scope.double = function (value) {
+            return value * 3;
+        };
+    }
 })();
