@@ -31,6 +31,18 @@ You may also use the built in webserver (gulp-webserver) by issuing:
 
     gulp webServer
 
-# Last updated 
+# Last updated
+
+## Changelist
+
+### AngularJs removed
+
+I've decided to remove the whole AngularJS stuff all together from the application itself due to it does not fit here. I'm creating a different application that uses AngularJS, which also makes more sense.
+
+### REST services
+
+REST-services will be hosted using PHP (at least in the beginning). This is related to services such as Twitter and.. well, other stuff. 
+
+## Date
 
 11.11.2016

@@ -18,8 +18,6 @@ var sourcemaps = require("gulp-sourcemaps");
 var htmlreplace = require("gulp-html-replace");
 var htmlmin = require("gulp-htmlmin");
 var cssnano = require("gulp-cssnano");
-var ngAnnotate = require("gulp-ng-annotate");
-var templateCache = require("gulp-angular-templatecache");
 var uglify = require("gulp-uglify");
 var babel = require("gulp-babel");
 var hash_src = require("gulp-hash-src");
@@ -42,27 +40,15 @@ var jsExtFiles = [
     "node_modules/babel-polyfill/dist/polyfill.js",
     "node_modules/jquery/dist/jquery.js",
     "node_modules/lodash/lodash.js",
-    "node_modules/bootstrap/dist/js/bootstrap.js",
-    "node_modules/angular/angular.js",
-    "node_modules/angular-animate/angular-animate.js",
-    "node_modules/angular-route/angular-route.js",
-    "node_modules/angular-ui-router/release/angular-ui-router.js",
-    "node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js",
-    "node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"
+    "node_modules/bootstrap/dist/js/bootstrap.js"
 ];
 var jsLibFiles = [
     "lib/**/*Module.js",
     "lib/**/*.js"
 ];
-var jsAppFiles = [
-    "app/**/*AppModule.js",
-    "app/**/*Module.js",
-    "app/**/*.js"
-];
 var cssSrcFiles = [
     "node_modules/bootstrap/dist/css/bootstrap-theme.css",
     "node_modules/bootstrap/dist/css/bootstrap.css",
-    "node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css",
     "node_modules/font-awesome/css/font-awesome.css",
     "artifacts/**/*.css",
     "lib/vegaasen-ng/**/*.css",
@@ -112,7 +98,7 @@ gulp.task('webServer', ['watch', 'build'], function () {
 // *** WATCHES ***
 
 gulp.task("watch-js", function () {
-    return gulp.watch(["app/**/*.js", "lib/vegaasen-ng/**/*.js"], ["build-js-app"]);
+    return gulp.watch(["app/**/*.js", "artifacts/js/**/*.js","lib/vegaasen-ng/**/*.js"], ["build-js-app"]);
 });
 gulp.task("watch-html", function () {
     return gulp.watch(["app/**/*.html"], ["build-html"]);
@@ -128,21 +114,6 @@ gulp.task("clean-js", ["clean-js-app", "clean-js-lib", "clean-js-ext"]);
 gulp.task("build-js", ["build-js-app", "build-js-lib", "build-js-ext"], function () {
 });
 
-gulp.task("clean-js-app", function () {
-    return del([distPath + "app.js", configuration.jsDistPath + "app.min.js", configuration.jsDistPath + "app.min.js.map"]);
-});
-gulp.task("build-js-app", ["clean-js-app"], function () {
-    var sourceRoot = "../../app";
-    return gulp.src(jsAppFiles)
-        .pipe(sourcemaps.init())
-        .pipe(concat("app.min.js"))
-        .pipe(ngAnnotate())
-        .pipe(babel({presets: ['es2015'], compact: false}))
-        .pipe(releaseEnvironment(uglify()))
-        .pipe(sourcemaps.write(".", {includeContent: true, sourceRoot: sourceRoot}))
-        .pipe(gulp.dest(configuration.jsDistPath));
-});
-
 gulp.task("clean-js-lib", function () {
     return del([configuration.jsDistPath + "lib.js", configuration.jsDistPath + "lib.min.js", configuration.jsDistPath + "lib.min.js.map"]);
 });
@@ -152,7 +123,6 @@ gulp.task("build-js-lib", ["clean-js-lib"], function () {
     return gulp.src(jsLibFiles)
         .pipe(sourcemaps.init())
         .pipe(concat("lib.min.js"))
-        .pipe(ngAnnotate())
         .pipe(babel({presets: ['es2015']}))
         //.pipe(gulp.dest(configuration.jsDistPath))
         .pipe(releaseEnvironment(uglify()))
@@ -201,7 +171,6 @@ gulp.task("clean-html-templates", function () {
 gulp.task("build-html-templates", ["clean-html-templates"], function () {
     return gulp.src(htmlTemplateSrcFiles)
         .pipe(releaseEnvironment(htmlmin({collapseWhitespace: true, conservativeCollapse: true})))
-        .pipe(templateCache({root: "app/", standalone: true}))
         .pipe(gulp.dest(configuration.templateDistPath));
 });
 
