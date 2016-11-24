@@ -40,6 +40,9 @@ var jsExtFiles = [
     "node_modules/babel-polyfill/dist/polyfill.js",
     "node_modules/jquery/dist/jquery.js",
     "node_modules/lodash/lodash.js",
+    "node_modules/classie/lib/classie.js",
+    "node_modules/classie/dist/Chart.js",
+    "node_modules/smootscroll/smoothscroll.js",
     "node_modules/bootstrap/dist/js/bootstrap.js"
 ];
 var jsLibFiles = [
@@ -98,7 +101,7 @@ gulp.task('webServer', ['watch', 'build'], function () {
 // *** WATCHES ***
 
 gulp.task("watch-js", function () {
-    return gulp.watch(["app/**/*.js", "artifacts/js/**/*.js","lib/vegaasen-ng/**/*.js"], ["build-js-app"]);
+    return gulp.watch(["app/**/*.js"], ["build-js-lib"]);
 });
 gulp.task("watch-html", function () {
     return gulp.watch(["app/**/*.html"], ["build-html"]);
@@ -111,7 +114,7 @@ gulp.task("watch", ["build", "watch-js", "watch-html", "watch-css"]);
 // *** JS ***
 
 gulp.task("clean-js", ["clean-js-app", "clean-js-lib", "clean-js-ext"]);
-gulp.task("build-js", ["build-js-app", "build-js-lib", "build-js-ext"], function () {
+gulp.task("build-js", ["build-js-lib", "build-js-ext"], function () {
 });
 
 gulp.task("clean-js-lib", function () {
@@ -157,7 +160,7 @@ gulp.task("build-html-index", ["clean-html-index", "build-html-templates", "buil
         .pipe(rename("index.html"))
         .pipe(htmlreplace({
             remove: [],
-            js: ["app/ext.min.js", "app/lib.min.js", "app/templates.js", "app/app.min.js"],
+            js: ["app/ext.min.js", "app/lib.min.js"],
             css: ["css/styles.min.css"]
         }))
         .pipe(hash_src({build_dir: "./dist", src_path: "app", query_name: "", verbose: false}))
