@@ -45,4 +45,4 @@ REST-services will be hosted using PHP (at least in the beginning). This is rela
 
 ## Date
 
-11.11.2016
+27.12.2016

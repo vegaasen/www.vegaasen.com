@@ -40,10 +40,9 @@ var jsExtFiles = [
     "node_modules/babel-polyfill/dist/polyfill.js",
     "node_modules/jquery/dist/jquery.js",
     "node_modules/lodash/lodash.js",
-    "node_modules/classie/lib/classie.js",
-    "node_modules/classie/dist/Chart.js",
-    "node_modules/smootscroll/smoothscroll.js",
-    "node_modules/bootstrap/dist/js/bootstrap.js"
+    "node_modules/bootstrap/dist/js/bootstrap.js",
+    "node_modules/chart.js/dist/Chart.bundle.js",
+    "node_modules/smootscroll/smoothscroll.js"
 ];
 var jsLibFiles = [
     "lib/**/*Module.js",
