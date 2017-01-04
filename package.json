@@ -29,7 +29,11 @@
     "gulp-google-webfonts": "^0.0.14",
     "jquery": "^2.2.3",
     "lodash": "^4.14.2",
-    "ng-flow": "^2.1.4"
+    "ng-flow": "^2.1.4",
+    "lato-webfont": "2.15.1",
+    "raleway-webfont": "3.0.1",
+    "jquery-parallax.js": "1.4.3",
+    "slick-carousel": "1.6.0"
   },
   "devDependencies": {
     "babel-polyfill": "^6.13.0",

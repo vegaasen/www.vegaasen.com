@@ -31,6 +31,25 @@ You may also use the built in webserver (gulp-webserver) by issuing:
 
     gulp webServer
 
+# Todos
+
+Notions: 
+* [v] == done
+* [] == not done 
+
+The lot: 
+* [] Convert all `<img/>`-tags to use CSS instead (unless it makes sense in a SEOish way)
+* [] Convert to use uglifier/minifier of the following content:
+    * [] HTML
+    * [] JS
+    * [] CSS
+* [] Use CSS sprites instead? Gulp helps with this I guess
+* [] Reduce the number of libraries in use?
+* [] Mobile..first (ish... :-P)
+    * [] Smaller images
+    * [] Better handling of the content (css)
+* [] Use LESS, for ffs (or SASS for that matter..).
+
 # Last updated
 
 ## Changelist
@@ -45,4 +64,4 @@ REST-services will be hosted using PHP (at least in the beginning). This is rela
 
 ## Date
 
-27.12.2016
+04.01.2017

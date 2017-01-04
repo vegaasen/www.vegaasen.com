@@ -26,10 +26,20 @@
         </ol>
     </div>
 </div>
+<!--
+    ## START ##
+    this is intentional in order to make webStorm actually recognize the damn stylesheets :-) (meh, I know..)
+-->
+<link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../node_modules/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="../artifacts/css/bootstrap.vegaasen.main.css" rel="stylesheet">
+<!--
+    ## END ##
+-->
 <!-- endbuild -->
 <nav class="menu" id="theMenu">
     <div class="menu-wrap">
-        <h1 class="logo"><a href="#introduction">vegaasen</a></h1>
+        <h1 class="logo text-center"><a href="#introduction">vegaasen</a></h1>
         <span class="icon-remove menu-close"></span>
         <a href="#introduction" class="smoothScroll">Home</a>
         <a href="#hobbies" class="smoothScroll">Hobbies</a>
@@ -44,12 +54,12 @@
     </div>
     <div id="menuToggle"><span class="icon-reorder"></span></div>
 </nav>
-<section id="introduction" class="wrapper wrapper-full">
+<section id="introduction" class="wrapper wrapper-full view-background_white">
     <div id="heading" class="centerify">
         <div class="container">
-            <img src="images/personal/me.png" class="img-circle img-small"/>
-            <h1 class="no-margin">laosen,</h1>
-            <h2>dev|runner|carnut|skier|geek</h2>
+            <img src="images/personal/me.png" class="img-circle img-medium img-bordered"/>
+            <h1 class="no-margin">helo!</h1>
+            <h2 class="text-size_medium">dev|runner|carnut|skier|geek</h2>
         </div>
     </div>
     <div class="wrapper-footer">
@@ -62,7 +72,7 @@
 </section>
 <section id="about" class="wrapper view-background_white">
     <div class="container">
-        <h3 class="text-case_upper">about me</h3>
+        <h3 class="text-uppercase">about me</h3>
         <div class="row">
             <div class="view-full_width">
                 <p>
@@ -73,7 +83,7 @@
         <div class="row">
             <div class="col-lg-3 team">
                 <img class="img-circle" src="images/team01.jpg" height="90" width="90">
-                <h4>Liz Stewart</h4>
+                <h4 class="text-lowercase">I &hearts; vestlandet</h4>
                 <h5><i>Product Manager</i></h5>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 <p>
@@ -86,7 +96,7 @@
 
             <div class="col-lg-3 team">
                 <img class="img-circle" src="images/team02.jpg" height="90" width="90">
-                <h4>Brad Casey</h4>
+                <h4 class="text-lowercase">Brad Casey</h4>
                 <h5><i>Front-end Developer</i></h5>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 <p>
@@ -99,7 +109,7 @@
 
             <div class="col-lg-3 team">
                 <img class="img-circle" src="images/team03.jpg" height="90" width="90">
-                <h4>Pamela Chow</h4>
+                <h4 class="text-lowercase">Pamela Chow</h4>
                 <h5><i>Web Designer</i></h5>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 <p>
@@ -112,7 +122,7 @@
 
             <div class="col-lg-3 team">
                 <img class="img-circle" src="images/team04.jpg" height="90" width="90">
-                <h4>Tim Gates</h4>
+                <h4 class="text-lowercase">Tim Gates</h4>
                 <h5><i>Back-end Guru</i></h5>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 <p>
@@ -125,15 +135,64 @@
         </div>
     </div>
 </section>
-<section id="programming" class="wrapper view-full_height">
+<section id="hobbies" class="wrapper wrapper-large wrapper-large_minimum">
+    <div class="wrapper">
+        <div class="container splitted centered">
+            <h2 class="text-uppercase">My time-consuming hobbies &amp; interests</h2>
+            <div class="hobbies-container">
+                <div>
+                    <h4>Trail running</h4>
+                    <p>
+                        I spend quite a few hours per week running, mostly on trails. It does not matter if it is on
+                        mountains, in the norwegian forests or wherever - as long as
+                        I'm in the great outdoors.
+                    </p>
+                    <p>
+                        The initial &hearts; for running started when I was younger, however it was in my late twenties
+                        I started to once again rediscover the delicious joy and fun
+                        being able to stride through miles and miles
+                    </p>
+                    <img src="" class="img-circle hobbies hobbies_biking">
+                </div>
+                <div>
+                    <h4>Road &amp; trail cycling</h4>
+                    <p>
+                        I've always &hearts; to be on the bike - either it was on the tarmac or in the deep woods.
+                        Recently I've purchased a road bike, because that gives a lot of
+                        long distance fun! However, I must admit that the road-bike never gets as thrilling as
+                        fast-paced trail-biking does ;-)
+                    </p>
+                    <img src="" class="img-circle hobbies hobbies_biking">
+                </div>
+                <div>
+                    <div>
+                        <h4>Skiing</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy text ever.</p>
+                        <img src="" class="img-circle hobbies hobbies_skiing">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <h4>Cars</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy text ever.</p>
+                        <img src="" class="img-circle hobbies hobbies_biking">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="programming" class="wrapper view-full_height view-background_white">
     <div class="wrapper">
         <div class="container splitted">
             <div class="row thumbnails">
-                <h2 class="text-align_right text-case_upper">#whatamiworkingwithrightnow</h2>
+                <h2 class="text-right text-uppercase">#whatamiworkingwithrightnow</h2>
                 <div class="col-lg-5">
                     <div class="thumbnail with-background with-background_iot">
                         <div class="caption">
-                            <h4 class="text-case_upper">Internet of Things</h4>
+                            <h4 class="text-uppercase">Internet of Things</h4>
                             <p>
                                 I have a lot of various projects at home, and the latest addition to my addiction is the
                                 IoT stuff that is happening right now. I find it very
@@ -157,7 +216,7 @@
                 <div class="col-lg-3">
                     <div class="thumbnail with-background with-background_angularJs">
                         <div class="caption">
-                            <h4 class="text-case_upper">AngularJS</h4>
+                            <h4 class="text-uppercase">AngularJS</h4>
                             <p>
                                 In the beginning of May 2016 I've again started working with AngularJS. It must have
                                 been just over a year the last time I touched this awesome
@@ -171,7 +230,7 @@
                 <div class="col-lg-2">
                     <div class="thumbnail with-background with-background_raspberryPi">
                         <div class="caption">
-                            <h4 class="text-case_upper">Raspberry PI</h4>
+                            <h4 class="text-uppercase">Raspberry PI</h4>
                             <p>
                                 Last year I bought my first small raspberry pi device. It didn't take long before stuff
                                 were installed to the small device. My first temperature and
@@ -184,7 +243,7 @@
                 <div class="col-lg-2">
                     <div class="thumbnail with-background with-background_android">
                         <div class="caption">
-                            <h4 class="text-case_upper">Android</h4>
+                            <h4 class="text-uppercase">Android</h4>
                             <p>
                                 Lately I've been fiddling around with some new stuff like Android Wear things and
                                 Network Service Discovery (DNS-SD) in regards with an app I were
@@ -198,7 +257,7 @@
                 <div class="col-lg-4">
                     <div class="thumbnail with-background with-background_docker">
                         <div class="caption">
-                            <h4 class="text-case_upper">Docker</h4>
+                            <h4 class="text-uppercase">Docker</h4>
                             <p>
                                 The use of Docker in real-world scenarios is not on the rise for me, to be honest -
                                 however, I've been working quite some time with the
@@ -212,7 +271,7 @@
                 <div class="col-lg-6">
                     <div class="thumbnail with-background with-background_java">
                         <div class="caption">
-                            <h4 class="text-case_upper">Java &amp; microservices</h4>
+                            <h4 class="text-uppercase">Java &amp; microservices</h4>
                             <p>
                                 Both at work and at home - all my applications is converted to be non-monolithic to
                                 simpler perform deployments and what not. However, as being one
@@ -229,78 +288,17 @@
         </div>
     </div>
 </section>
-<section id="hobbies" class="wrapper view-full_height view-background_white">
-    <div class="wrapper-white">
-        <div class="container splitted">
-            <div class="row spacing">
-                <h2 class="text-align_right text-case_upper">My time-consuming hobbies &amp; interests</h2>
-                <div class="col-lg-6">
-                    <img src="" class="img-circle hobbies hobbies_biking">
-                    <h4>Trail running</h4>
-                    <p>
-                        I spend quite a few hours per week running, mostly on trails. It does not matter if it is on
-                        mountains, in the norwegian forests or wherever - as long as
-                        I'm in the great outdoors.
-                    </p>
-                    <p>
-                        The initial &hearts; for running started when I was younger, however it was in my late twenties
-                        I started to once again rediscover the delicious joy and fun
-                        being able to stride through miles and miles
-                    </p>
-                </div>
-                <div class="col-lg-6">
-                    <img src="" class="img-circle hobbies hobbies_biking">
-                    <h4>Trail &amp; road cycling</h4>
-                    <p>
-                        I've always &hearts; to be on the bike - either it was on the tarmac or in the deep woods.
-                        Recently I've purchased a road bike, because that gives a lot of
-                        long distance fun! However, I must admit that the road-bike never gets as thrilling as
-                        fast-paced trail-biking does ;-)
-                    </p>
-                </div>
-            </div>
-            <div class="row spacing">
-                <div class="col-lg-4">
-                    <img src="" class="img-circle hobbies hobbies_biking">
-                    <h4>Mountaineering</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever.</p>
-                </div>
-                <div class="col-lg-4">
-                    <img src="" class="img-circle hobbies hobbies_skiing">
-                    <h4>Skiing</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever.</p>
-                </div>
-                <div class="col-lg-4">
-                    <img src="" class="img-circle hobbies hobbies_biking">
-                    <h4>Ice cream, cakes, &amp; waffles</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever.</p>
-                </div>
-            </div>
-            <div class="row spacing">
-                <div class="col-lg-12">
-                    <img src="" class="img-circle hobbies hobbies_biking">
-                    <h4>Cars</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <section id="highlights" class="view-full_height">
     <div class="container splitted">
         <div class="row">
-            <h2 class="text-align_left text-case_upper">My <span class="label label-primary">Awesome</span>, <span
+            <h2 class="text-left text-uppercase">My <span class="label label-primary">Awesome</span>, <span
                     class="label label-primary">cool</span> &amp; <span
                     class="label label-primary">epic</span> skill toolbelt</h2>
             <div class="col-lg-3">
                 <div class="thumbnail">
                     <img src="images/s1.png">
                     <div class="caption">
-                        <h4 class="text-case_upper">Ui Magix</h4>
+                        <h4 class="text-uppercase">Ui Magix</h4>
                         <h5></h5>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry's standard dummy text ever.</p>
@@ -311,7 +309,7 @@
                 <div class="thumbnail">
                     <img src="images/s2.png">
                     <div class="caption">
-                        <h4 class="text-case_upper">Engine wizard</h4>
+                        <h4 class="text-uppercase">Engine wizard</h4>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry's standard dummy text ever.</p>
                     </div>
@@ -321,7 +319,7 @@
                 <div class="thumbnail">
                     <img src="images/s3.png">
                     <div class="caption">
-                        <h4 class="text-case_upper">Connecting the dots</h4>
+                        <h4 class="text-uppercase">Connecting the dots</h4>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry's standard dummy text ever.</p>
                     </div>
@@ -331,7 +329,7 @@
                 <div class="thumbnail">
                     <img src="images/s4.png">
                     <div class="caption">
-                        <h4 class="text-case_upper">Analysist</h4>
+                        <h4 class="text-uppercase">Analysist</h4>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry's standard dummy text ever.</p>
                     </div>
@@ -349,24 +347,7 @@
     </div>
 </section>
 <section id="portfolio" class="wrapper">
-    <div class="portfoliowrap">
-        <div class="container">
-            <div class="row">
-                <h3>COOL WORKS</h3>
-                <br>
-                <br>
-                <div class="col-lg-4 port-space">
-                    <a href="item.php"><img src="images/work2.png"></a>
-                </div>
-                <div class="col-lg-4 port-space">
-                    <a href="item.php"><img src="images/work1.png"></a>
-                </div>
-                <div class="col-lg-4 port-space">
-                    <a href="item.php"><img src="images/work3.png"></a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="portfoliowrap" data-parallax="scroll" data-image-src="images/portfolio-bg.jpg"></div>
     <div class="wrapper-white wrapper-white_padded">
         <div class="container">
             <div class="row">
@@ -401,7 +382,7 @@
 </section>
 <div id="c">
     <div class="container">
-        <p>"many (っ◕‿◕)っ to cookies and juice" - &copy; vegard aasen 2o16</p>
+        <p>"many (っ◕‿◕)っ to cookies and juice" - &copy; vegard aasen 2o17</p>
     </div>
 </div>
 <!-- build:js -->

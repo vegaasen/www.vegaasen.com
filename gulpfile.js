@@ -42,7 +42,9 @@ var jsExtFiles = [
     "node_modules/lodash/lodash.js",
     "node_modules/bootstrap/dist/js/bootstrap.js",
     "node_modules/chart.js/dist/Chart.bundle.js",
-    "node_modules/smootscroll/smoothscroll.js"
+    "node_modules/smootscroll/smoothscroll.js",
+    "node_modules/jquery-parallax.js/parallax.js",
+    "node_modules/slick-carousel/slick/slick.js"
 ];
 var jsLibFiles = [
     "lib/**/*Module.js",
@@ -52,6 +54,7 @@ var cssSrcFiles = [
     "node_modules/bootstrap/dist/css/bootstrap-theme.css",
     "node_modules/bootstrap/dist/css/bootstrap.css",
     "node_modules/font-awesome/css/font-awesome.css",
+    "node_modules/slick-carousel/slick/slick.css",
     "artifacts/**/*.css",
     "lib/vegaasen-ng/**/*.css",
     configuration.fontsDistPath + "**/*.css"
@@ -68,6 +71,9 @@ var imageSrcFiles = [
 var fontSrcFiles = [
     "node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.*",
     "node_modules/font-awesome/fonts/*.*",
+    "node_modules/raleway-webfont/fonts/Raleway-Regular.*",
+    "node_modules/lato-webfont/fonts/Lato-Regular.*",
+    "node_modules/lato-webfont/fonts/Lato-Italic.*",
     configuration.fontsDistPath + "*.woff"
 ];
 
@@ -100,7 +106,7 @@ gulp.task('webServer', ['watch', 'build'], function () {
 // *** WATCHES ***
 
 gulp.task("watch-js", function () {
-    return gulp.watch(["app/**/*.js"], ["build-js-lib"]);
+    return gulp.watch(["app/**/*.js", "lib/**/*.js"], ["build-js-lib"]);
 });
 gulp.task("watch-html", function () {
     return gulp.watch(["app/**/*.html"], ["build-html"]);

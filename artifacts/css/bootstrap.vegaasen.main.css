@@ -7,9 +7,11 @@
  * @since 14.03.2016
  * @version 03.01.2016
  */
+@import "bootstrap.vegaasen.fonts.css";
+
 body {
     background-color: #f2f2f2;
-    font-family: "Lato", serif;
+    font-family: 'LatoFont', serif;
     font-weight: 300;
     font-size: 16px;
     color: #555;
@@ -18,7 +20,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    font-family: 'RalewayFont', Helvetica, Arial, sans-serif;
     font-weight: 300;
     color: #333;
 }
@@ -86,16 +88,8 @@ hr {
     margin-bottom: 60px;
 }
 
-.text-case_upper {
-    text-transform: uppercase;
-}
-
-.text-align_left {
-    text-align: left !important;
-}
-
-.text-align_right {
-    text-align: right !important;
+.text-size_medium {
+    font-size: 1em;
 }
 
 .wrapper {
@@ -110,14 +104,16 @@ hr {
     padding: 10em 0;
 }
 
-.wrapper-semi_full {
-    height: 100vh;
-    background-color: #fff;
+.wrapper-large_minimum {
+    min-height: 700px;
+}
+
+.wrapper-large {
+    height: 90vh;
 }
 
 .wrapper-full {
     height: 100vh;
-    background-color: #fff;
 }
 
 .wrapper > .wrapper-footer {
@@ -155,7 +151,7 @@ hr {
 }
 
 #heading h1 {
-    margin-top: 0px;
+    margin-top: 0;
     color: #444444;
     font-size: 8em;
     font-weight: 700;
@@ -164,9 +160,10 @@ hr {
 
 #heading h2 {
     color: #444444;
-    font-size: 1.9em;
+    font-size: 1.6em;
     font-weight: 100;
-    letter-spacing: 2px;
+    letter-spacing: -1px;
+    margin-top: -16px;
 }
 
 #heading h3 {
@@ -184,7 +181,6 @@ hr {
     margin-top: 0;
     padding-top: 70px;
     text-align: center;
-    background: url(../images/portfolio-bg.jpg) no-repeat center center;
     min-height: 500px;
     width: 100%;
     -webkit-background-size: cover;
@@ -310,7 +306,7 @@ hr {
 }
 
 .menu h1.logo a {
-    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 800;
     letter-spacing: 0.15em;
@@ -466,12 +462,16 @@ hr {
     text-align: center;
 }
 
+.img-bordered {
+    border: 3px solid #2f2f2f;
+}
+
 .img-small {
     width: 80px;
 }
 
 .img-medium {
-    width: 120px;
+    width: 110px;
 }
 
 .img-large {
@@ -487,8 +487,7 @@ hr {
 }
 
 .hobbies {
-    background-position: left top;
-    background-repeat: repeat;
+    background: repeat left top;
     background-size: 110%;
     height: 160px;
     width: 160px;
