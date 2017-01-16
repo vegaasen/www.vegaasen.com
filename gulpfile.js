@@ -19,7 +19,6 @@ var htmlreplace = require("gulp-html-replace");
 var htmlmin = require("gulp-htmlmin");
 var cssnano = require("gulp-cssnano");
 var uglify = require("gulp-uglify");
-var babel = require("gulp-babel");
 var hash_src = require("gulp-hash-src");
 var env = require("gulp-environments");
 var googleWebFonts = require('gulp-google-webfonts');
@@ -33,11 +32,11 @@ var configuration = {
     jsDistPath: distPath + "app/",
     templateDistPath: distPath + "app/",
     imageDistPath: distPath + "images/",
-    fontDistPath: distPath + "fonts/"
+    fontDistPath: distPath + "fonts/",
+    slickfontDistPath: distPath + "css/fonts/"
 };
 
 var jsExtFiles = [
-    "node_modules/babel-polyfill/dist/polyfill.js",
     "node_modules/jquery/dist/jquery.js",
     "node_modules/lodash/lodash.js",
     "node_modules/bootstrap/dist/js/bootstrap.js",
@@ -55,6 +54,7 @@ var cssSrcFiles = [
     "node_modules/bootstrap/dist/css/bootstrap.css",
     "node_modules/font-awesome/css/font-awesome.css",
     "node_modules/slick-carousel/slick/slick.css",
+    "node_modules/slick-carousel/slick/slick-theme.css",
     "artifacts/**/*.css",
     "lib/vegaasen-ng/**/*.css",
     configuration.fontsDistPath + "**/*.css"
@@ -66,7 +66,8 @@ var imageSrcFiles = [
     "artifacts/images/**/*.png",
     "artifacts/images/**/*.jpg",
     "artifacts/images/**/*.bmp",
-    "artifacts/images/**/*.gif"
+    "artifacts/images/**/*.gif",
+    "node_modules/slick-carousel/slick/ajax-loader.gif"
 ];
 var fontSrcFiles = [
     "node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.*",
@@ -74,7 +75,12 @@ var fontSrcFiles = [
     "node_modules/raleway-webfont/fonts/Raleway-Regular.*",
     "node_modules/lato-webfont/fonts/Lato-Regular.*",
     "node_modules/lato-webfont/fonts/Lato-Italic.*",
+    "node_modules/slick-carousel/slick/fonts/*.*",
     configuration.fontsDistPath + "*.woff"
+];
+
+var slickFontSrcFiles = [
+    "node_modules/slick-carousel/slick/fonts/*.*"
 ];
 
 // *** DEFAULT ***
@@ -88,7 +94,7 @@ gulp.task("test", function () {
 gulp.task("clean", function () {
     return del(distPath + "*");
 });
-gulp.task("build", ["build-js", "build-css", "build-html", "build-images", "build-fonts"]);
+gulp.task("build", ["build-js", "build-css", "build-html", "build-images", "build-fonts", "build-slick-fonts"]);
 gulp.task("default", ["clean", "build"]);
 gulp.task('develop', ['watch', 'webServer']);
 
@@ -131,7 +137,6 @@ gulp.task("build-js-lib", ["clean-js-lib"], function () {
     return gulp.src(jsLibFiles)
         .pipe(sourcemaps.init())
         .pipe(concat("lib.min.js"))
-        .pipe(babel({presets: ['es2015']}))
         //.pipe(gulp.dest(configuration.jsDistPath))
         .pipe(releaseEnvironment(uglify()))
         //.pipe(rename("lib.min.js"))
@@ -193,16 +198,20 @@ gulp.task('build-google-fonts', ['clean-google-fonts'], function () {
         .pipe(gulp.dest(configuration.fontsDistPath));
 });
 
+// *** SLICK FONTS ***
+
+gulp.task("clean-slick-fonts", function () {
+    return del([configuration.slickfontDistPath + "*.*"]);
+});
+gulp.task("build-slick-fonts", ["clean-slick-fonts"], function () {
+    return gulp.src(slickFontSrcFiles)
+        .pipe(gulp.dest(configuration.slickfontDistPath));
+});
+
 // *** FONTS ***
 
 gulp.task("clean-fonts", function () {
-    return del([
-        configuration.fontDistPath + "*.eot",
-        configuration.fontDistPath + "*.svg",
-        configuration.fontDistPath + "*.ttf",
-        configuration.fontDistPath + "*.woff",
-        configuration.fontDistPath + "*.woff2"
-    ]);
+    return del([configuration.fontDistPath + "*.*"]);
 });
 gulp.task("build-fonts", ["clean-fonts"], function () {
     return gulp.src(fontSrcFiles)

@@ -63,6 +63,10 @@ hr {
     padding: 0;
 }
 
+.thumbnail-image {
+    margin: 10%;
+}
+
 .view-background_white {
     background-color: #ffffff;
 }
@@ -92,8 +96,31 @@ hr {
     font-size: 1em;
 }
 
+.fancy-container {
+
+}
+
+.fancy-wrapper {
+
+}
+
+.fancy-heading {
+    margin-top: 20vh;
+    text-transform: lowercase;
+}
+
+.fancy-content {
+    padding: 100px;
+    background-color: #eee;
+}
+
 .wrapper {
 
+}
+
+.wrapper-whole {
+    height: 100%;
+    overflow: hidden;
 }
 
 .wrapper-gray {
@@ -110,6 +137,17 @@ hr {
 
 .wrapper-large {
     height: 90vh;
+}
+
+@media (max-width: 500px) {
+    .wrapper h2 {
+        font-size: 1.4em;
+        word-break: break-all;
+    }
+
+    .wrapper-large {
+        height: 100vh;
+    }
 }
 
 .wrapper-full {
