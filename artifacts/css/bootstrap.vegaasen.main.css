@@ -169,17 +169,24 @@ hr {
 }
 
 .fancy-wrapper {
-
+    padding: 100px;
 }
 
 .fancy-heading {
-    margin-top: 20vh;
     text-transform: lowercase;
 }
 
+.fancy-heading h2::after {
+    display: block;
+    content: "";
+    width: 25px;
+    height: 3px;
+    background: #2ecc71;
+    margin-top: 30px;
+}
+
 .fancy-content {
-    padding: 100px;
-    background-color: #eee;
+
 }
 
 .wrapper {
@@ -281,6 +288,11 @@ hr {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -70%);
+}
+
+.container-fluid_full {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .portfolio-wrapper {
