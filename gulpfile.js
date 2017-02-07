@@ -21,6 +21,7 @@ var cssnano = require("gulp-cssnano");
 var uglify = require("gulp-uglify");
 var hash_src = require("gulp-hash-src");
 var env = require("gulp-environments");
+var less = require('gulp-less');
 var googleWebFonts = require('gulp-google-webfonts');
 var releaseEnvironment = env.make("release");
 var debugEnvironment = env.make("debug");
@@ -54,6 +55,9 @@ var cssSrcFiles = [
     "artifacts/**/*.css",
     "lib/vegaasen-ng/**/*.css",
     configuration.fontsDistPath + "**/*.css"
+];
+var cssLessFiles = [
+    "artifacts/**/my.less"
 ];
 var htmlTemplateSrcFiles = [
     "app/**/*.html", "!app/index.html"
@@ -178,6 +182,7 @@ gulp.task("build-html-templates", ["clean-html-templates"], function () {
 });
 
 // *** GOOGLE FONTS ***
+// TODO: should this even be used? Don't think so..
 
 gulp.task("clean-google-fonts", function () {
     return del([configuration.fontsDistPath + "*.*"]);
@@ -211,6 +216,14 @@ gulp.task("build-css", ["clean-css", "build-google-fonts"], function () {
         .pipe(releaseEnvironment(cssnano({safe: true})))
         //.pipe(rename("styles.min.css"))
         .pipe(sourcemaps.write("."))
+        .pipe(gulp.dest(configuration.cssDistPath));
+});
+
+// *** CSS > LESS ***
+
+gulp.task('less', function () {
+    return gulp.src(cssLessFiles)
+        .pipe(less({compress: true}))
         .pipe(gulp.dest(configuration.cssDistPath));
 });
 

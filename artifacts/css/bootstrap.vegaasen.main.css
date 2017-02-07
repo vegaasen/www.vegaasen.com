@@ -75,7 +75,6 @@ hr {
 
 .skill-idea {
     background-color: #5dceb4;
-
 }
 
 @media (min-width: 800px) {
@@ -303,9 +302,6 @@ h2.h2_heading::after {
 #about {
     padding-top: 35px;
     padding-bottom: 35px;
-}
-
-#dg {
 }
 
 .footer {
@@ -550,14 +546,6 @@ h2.h2_heading::after {
     width: 160px;
 }
 
-.hobbies_skiing {
-    background-image: url("../images/hobbies/skiing.jpeg");
-}
-
-.hobbies_biking {
-    background-image: url("../images/hobbies/trail-bike.jpg");
-}
-
 .with-background {
     background-position: center top;
     background-size: 130%;
@@ -591,7 +579,6 @@ h2.h2_heading::after {
     margin-top: 15px;
     margin-bottom: 15px;
 }
-
 
 @media (max-width: 500px) {
 
