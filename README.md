@@ -1,5 +1,9 @@
 # vegaasen.com v6
 
+# Build status
+
+[![Build Status](https://travis-ci.org/vegaasen/vegaasen_com_version6.svg?branch=master)](https://travis-ci.org/vegaasen/vegaasen_com_version6)
+
 # Introduction
 
 This project represents the v6 of my own pages. 
