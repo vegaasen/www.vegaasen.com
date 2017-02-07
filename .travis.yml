@@ -2,8 +2,7 @@ sudo: false
 language: node_js
 node_js:
   - "6"
-before_install:
+before_script:
   - npm install -g gulp
-install:
+script:
   - gulp build
-script: gulp
