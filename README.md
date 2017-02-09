@@ -52,7 +52,7 @@ The lot:
 * [] Mobile..first (ish... :-P)
     * [] Smaller images
     * [] Better handling of the content (css)
-* [] Use LESS, for ffs (or SASS for that matter..).
+* [v] Use LESS, for ffs (or SASS for that matter..).
 
 # Last updated
 

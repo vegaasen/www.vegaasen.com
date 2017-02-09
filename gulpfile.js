@@ -1,6 +1,7 @@
 /**
  * Build-file for the Frontend
  * todo: currently, the fonts/google folder is not being wiped. Not a biggie, however it must go, though :-)
+ * todo: less with sourcemaps does not work as intended
  *
  * @author vegaasen
  * @version version 6
@@ -54,6 +55,7 @@ var cssSrcFiles = [
     "node_modules/font-awesome/css/font-awesome.css",
     "artifacts/**/*.css",
     "lib/vegaasen-ng/**/*.css",
+    configuration.cssDistPath + "**/my.css",
     configuration.fontsDistPath + "**/*.css"
 ];
 var cssLessFiles = [
@@ -114,7 +116,10 @@ gulp.task("watch-html", function () {
 gulp.task("watch-css", function () {
     return gulp.watch(["artifacts/**/*.css"], ["build-css"]);
 });
-gulp.task("watch", ["build", "watch-js", "watch-html", "watch-css"]);
+gulp.task("watch-less", function () {
+    return gulp.watch(["artifacts/**/*.less"], ["build-css"]);
+});
+gulp.task("watch", ["build", "watch-js", "watch-html", "watch-css", "watch-less"]);
 
 // *** JS ***
 
@@ -209,7 +214,7 @@ gulp.task("build-fonts", ["clean-fonts"], function () {
 gulp.task("clean-css", function () {
     return del([configuration.cssDistPath + "*.css"]);
 });
-gulp.task("build-css", ["clean-css", "build-google-fonts"], function () {
+gulp.task("build-css", ["clean-css", 'build-less', 'build-google-fonts'], function () {
     return gulp.src(cssSrcFiles)
         .pipe(sourcemaps.init())
         .pipe(concat("styles.min.css"))
@@ -221,9 +226,15 @@ gulp.task("build-css", ["clean-css", "build-google-fonts"], function () {
 
 // *** CSS > LESS ***
 
-gulp.task('less', function () {
+gulp.task('clean-less', function () {
+    return del([configuration.cssDistPath + "**/my.css"]);
+});
+
+gulp.task('build-less', ['clean-less'], function () {
     return gulp.src(cssLessFiles)
+        .pipe(sourcemaps.init())
         .pipe(less({compress: true}))
+        .pipe(sourcemaps.write("."))
         .pipe(gulp.dest(configuration.cssDistPath));
 });
 

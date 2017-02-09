@@ -2,8 +2,12 @@
  *	All defaults which relates to e.g body, container, div etc goes here.
  */
 
-.selection() {
-  background-color: @color-selector;
+::selection {
+  .selection();
+}
+
+::-moz-selection {
+  .selection();
 }
 
 body {
@@ -22,6 +26,20 @@ h1, h2, h3, h4, h5, h6 {
   color: #333;
 }
 
+h2 {
+  &.h2_heading {
+    margin-bottom: 25px;
+    &::after {
+      display: block;
+      content: "";
+      width: 25px;
+      height: 3px;
+      background: #2ecc71;
+      margin-top: 30px;
+    }
+  }
+}
+
 p {
   line-height: 28px;
   margin-bottom: 25px;
@@ -34,21 +52,17 @@ a {
   -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
   -o-transition: color 0.1s ease-in, background 0.1s ease-in;
   transition: color 0.1s ease-in, background 0.1s ease-in;
-}
-
-a:hover,
-a:focus {
-  color: #FFFFFF;
-  text-decoration: none;
-  outline: 0;
-}
-
-a:before,
-a:after {
-  -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-  -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-  -o-transition: color 0.1s ease-in, background 0.1s ease-in;
-  transition: color 0.1s ease-in, background 0.1s ease-in;
+  &:focus, &:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+    outline: 0;
+  }
+  &:before, &:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+  }
 }
 
 hr {
@@ -60,10 +74,6 @@ hr {
   padding: 0;
 }
 
-::selection {
-  .selection();
-}
-
-::-moz-selection {
-  .selection();
+.selection() {
+  background-color: @color-selector;
 }

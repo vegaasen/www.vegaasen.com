@@ -1,3 +1,10 @@
+.hobbies {
+  background: repeat left top;
+  background-size: 110%;
+  height: 160px;
+  width: 160px;
+}
+
 .with-background {
   background-position: center top;
   background-size: 130%;
@@ -25,4 +32,11 @@
 
 .with-background_docker {
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/docker.png");
+}
+
+.col_no-padding {
+  @media (max-width: @media-width-iphone) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

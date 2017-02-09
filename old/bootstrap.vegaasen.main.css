@@ -63,20 +63,6 @@ hr {
     padding: 0;
 }
 
-.skill {
-    margin-bottom: 10px;
-    text-align: center;
-    width: 150px;
-}
-
-.skill-no_idea {
-    background-color: #dfdfdf;
-}
-
-.skill-idea {
-    background-color: #5dceb4;
-}
-
 @media (min-width: 800px) {
     .row-floating {
         -webkit-column-count: 5;
@@ -552,27 +538,27 @@ h2.h2_heading::after {
 }
 
 .with-background_iot {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/Iot.png");
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../artifacts/images/activities/Iot.png");
 }
 
 .with-background_angularJs {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/AngularJS.png");
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../artifacts/images/activities/AngularJS.png");
 }
 
 .with-background_raspberryPi {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/raspberry-pi.png");
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../artifacts/images/activities/raspberry-pi.png");
 }
 
 .with-background_android {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/android.png");
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../artifacts/images/activities/android.png");
 }
 
 .with-background_java {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/java.png");
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../artifacts/images/activities/java.png");
 }
 
 .with-background_docker {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/docker.png");
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../artifacts/images/activities/docker.png");
 }
 
 .thumbnails > div {
@@ -580,7 +566,7 @@ h2.h2_heading::after {
     margin-bottom: 15px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 500px){
 
     .img-large {
         width: 155px;
@@ -602,10 +588,6 @@ h2.h2_heading::after {
     .wrapper h2 {
         font-size: 1.4em;
         word-break: break-all;
-    }
-
-    .wrapper-large {
-        height: 100%;
     }
 
     .col_no-padding {
