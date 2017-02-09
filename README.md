@@ -2,7 +2,7 @@
 
 # Build status
 
-[![Build Status](https://travis-ci.org/vegaasen/vegaasen_com_version6.svg?branch=master)](https://travis-ci.org/vegaasen/vegaasen_com_version6)
+[![Build Status](https://travis-ci.org/vegaasen/vegaasen_com_version6.svg?branch=VEG-001-redesign-no-angular)](https://travis-ci.org/vegaasen/vegaasen_com_version6)
 
 # Introduction
 

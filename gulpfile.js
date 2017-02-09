@@ -29,6 +29,7 @@ var debugEnvironment = env.make("debug");
 
 var distPath = "dist/";
 var configuration = {
+    basePath: distPath,
     cssDistPath: distPath + "css/",
     fontsDistPath: distPath + "fonts/google/",
     jsDistPath: distPath + "app/",
@@ -37,6 +38,10 @@ var configuration = {
     fontDistPath: distPath + "fonts/"
 };
 
+var extrasFiles = [
+    "artifacts/humans.txt",
+    "artifacts/robots.txt"
+];
 var jsExtFiles = [
     "node_modules/jquery/dist/jquery.js",
     "node_modules/lodash/lodash.js",
@@ -90,7 +95,7 @@ gulp.task("test", function () {
 gulp.task("clean", function () {
     return del(distPath + "*");
 });
-gulp.task("build", ["build-js", "build-css", "build-html", "build-images", "build-fonts"]);
+gulp.task("build", ["build-js", "build-css", "build-html", "build-images", "build-fonts", "build-extras"]);
 gulp.task("default", ["clean", "build"]);
 gulp.task('develop', ['watch', 'webServer']);
 
@@ -251,4 +256,16 @@ gulp.task("clean-images", function () {
 gulp.task("build-images", ["clean-images"], function () {
     return gulp.src(imageSrcFiles)
         .pipe(gulp.dest(configuration.imageDistPath));
+});
+
+// *** EXTRAS ***
+
+gulp.task("build-spoon", function () {
+    return gulp.src("artifacts/spoon/*.*")
+        .pipe(gulp.dest(configuration.basePath + "spoon/"));
+});
+
+gulp.task("build-extras", ["build-spoon"], function () {
+    return gulp.src(extrasFiles)
+        .pipe(gulp.dest(configuration.basePath));
 });
