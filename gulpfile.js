@@ -264,8 +264,11 @@ gulp.task("build-spoon", function () {
     return gulp.src("artifacts/spoon/*.*")
         .pipe(gulp.dest(configuration.basePath + "spoon/"));
 });
-
-gulp.task("build-extras", ["build-spoon"], function () {
+gulp.task("build-favicon", function () {
+    return gulp.src("artifacts/ico/*.*")
+        .pipe(gulp.dest(configuration.basePath + "ico/"));
+});
+gulp.task("build-extras", ["build-spoon", "build-favicon"], function () {
     return gulp.src(extrasFiles)
         .pipe(gulp.dest(configuration.basePath));
 });
