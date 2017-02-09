@@ -1,42 +1,42 @@
-.hobbies {
-  background: repeat left top;
-  background-size: 110%;
-  height: 160px;
-  width: 160px;
+.footer {
+  background: #5dceb4;
+  padding: 200px 0;
+  text-align: center;
+  @media (max-width: @media-width-tablet) {
+    min-height: 100vh;
+  }
+  h3 {
+    @media (max-width: @media-width-tablet-large) {
+      font-size: 3em;
+    }
+    @media (max-width: @media-width-iphone-plus) {
+      font-size: 2em;
+    }
+    @media (max-width: @media-width-iphone) {
+      font-size: 1.5em;
+    }
+  }
 }
 
 .with-background {
   background-position: center top;
   background-size: 130%;
-}
-
-.with-background_iot {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/Iot.png");
-}
-
-.with-background_angularJs {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/AngularJS.png");
-}
-
-.with-background_raspberryPi {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/raspberry-pi.png");
-}
-
-.with-background_android {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/android.png");
-}
-
-.with-background_java {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/java.png");
-}
-
-.with-background_docker {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/docker.png");
-}
-
-.col_no-padding {
-  @media (max-width: @media-width-iphone) {
-    padding-left: 0;
-    padding-right: 0;
+  &.with-background_iot {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/Iot.png");
+  }
+  &.with-background_angularJs {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/AngularJS.png");
+  }
+  &.with-background_raspberryPi {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/raspberry-pi.png");
+  }
+  &.with-background_android {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/android.png");
+  }
+  &.with-background_java {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/java.png");
+  }
+  &.with-background_docker {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%), url("../images/activities/docker.png");
   }
 }

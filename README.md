@@ -35,6 +35,12 @@ You may also use the built in webserver (gulp-webserver) by issuing:
 
     gulp webServer
 
+## Building a release-version of the application
+
+Issue the following command to build a proper release-variant of the application:
+
+    gulp build --env release
+
 # Todos
 
 Notions: 
@@ -43,15 +49,15 @@ Notions:
 
 The lot: 
 * [] Convert all `<img/>`-tags to use CSS instead (unless it makes sense in a SEOish way)
-* [] Convert to use uglifier/minifier of the following content:
-    * [] HTML
-    * [] JS
-    * [] CSS
+* [v] Convert to use uglifier/minifier of the following content:
+    * [v] HTML
+    * [v] JS
+    * [v] CSS
 * [] Use CSS sprites instead? Gulp helps with this I guess
 * [] Reduce the number of libraries in use?
 * [] Mobile..first (ish... :-P)
     * [] Smaller images
-    * [] Better handling of the content (css)
+    * [v] Better handling of the content (css)
 * [v] Use LESS, for ffs (or SASS for that matter..).
 
 # Last updated

@@ -12,7 +12,10 @@
 
 .img-large {
   width: 160px;
-  @media (max-width: @media-width-iphone) {
+  @media (max-width: @media-width-tablet) {
+    width: 190px;
+  }
+  @media (max-width: @media-width-iphone), (max-width: @media-width-iphone-plus) {
     width: 155px;
   }
 }
