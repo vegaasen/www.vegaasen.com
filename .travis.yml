@@ -1,8 +1,30 @@
-sudo: false
-language: node_js
+#https://github.com/travis-ci/travis-ci/labels/apt-whitelist
+#https://travis-ci.org/vegaasen/vegaasen_com_version6/settings
+#@since 23.02.2017
+#@author vegaasen
+
+sudo:
+  - false
+
+language:
+  - node_js
+
+addons:
+  ssh_known_hosts: $ssh-host-ip
+  apt:
+   packages:
+      - sshpass
+
 node_js:
   - "6"
+
 before_script:
   - npm install -g gulp
+
 script:
   - gulp build --env release
+
+deploy:
+  - provider: script
+  - skip_cleanup: true
+  - script: sshpass -p $ssh-host-user-password rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/dist -avz -e ssh $ssh-host-user-username@$ssh-host-ip:$deploy-location
