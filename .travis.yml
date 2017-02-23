@@ -31,8 +31,8 @@ script:
   - gulp build --env release
 
 deploy:
-  - skip_cleanup: true
   - provider: script
+  - skip_cleanup: true
   - script: sshpass -p $ssh-host-user-password rsync -r --delete-after --quiet -avz -e ssh $TRAVIS_BUILD_DIR/dist $ssh-host-user-username@$ssh-host-ip:$deploy-location
   - on:
         all_branches: true
