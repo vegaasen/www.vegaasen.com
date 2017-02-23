@@ -1,5 +1,11 @@
-#https://github.com/travis-ci/travis-ci/labels/apt-whitelist
-#https://travis-ci.org/vegaasen/vegaasen_com_version6/settings
+#
+# Simple Travis-CI deployment configuration for vegaasen.com. It basically uses sshpass and rsync to transfer files from
+# Travis-CI to vegaasen.com
+#
+# Documentation:
+# https://github.com/travis-ci/travis-ci/labels/apt-whitelist
+# https://travis-ci.org/vegaasen/vegaasen_com_version6/settings
+#
 #@since 23.02.2017
 #@author vegaasen
 
@@ -27,4 +33,4 @@ script:
 deploy:
   - provider: script
   - skip_cleanup: true
-  - script: sshpass -p $ssh-host-user-password rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/dist -avz -e ssh $ssh-host-user-username@$ssh-host-ip:$deploy-location
+  - script: sshpass -p $ssh-host-user-password rsync -r --delete-after --quiet -avz -e ssh $TRAVIS_BUILD_DIR/dist $ssh-host-user-username@$ssh-host-ip:$deploy-location
