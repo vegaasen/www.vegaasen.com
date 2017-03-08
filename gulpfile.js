@@ -178,7 +178,7 @@ gulp.task("build-html-index", ["clean-html-index", "build-html-templates", "buil
             css: ["css/styles.min.css"]
         }))
         .pipe(hash_src({build_dir: "./dist", src_path: "app", query_name: "", verbose: false}))
-        .pipe(releaseEnvironment(htmlmin({collapseWhitespace: true, conservativeCollapse: true})))
+        .pipe(releaseEnvironment(htmlmin({collapseWhitespace: true, conservativeCollapse: true, removeComments: true})))
         .pipe(gulp.dest(distPath));
 });
 
