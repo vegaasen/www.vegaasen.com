@@ -34,11 +34,14 @@ before_script:
 script:
   - gulp build --env release
 
+# the deployment itself should deploy to various locations, such as beta.vegaasen.com and vegaasen.com (master and dev-branches)
+#  v-------
+
 deploy:
   - provider: script
   - skip_cleanup: true
   - script: scripts/deploy.sh
   - on:
-        all_branches: true
+      all_branches: true
 
 #  - script: sshpass -p $ssh-host-user-password rsync -r --delete-after --quiet -avz -e ssh $TRAVIS_BUILD_DIR/dist $ssh-host-user-username@$ssh-host-ip:$deploy-location
