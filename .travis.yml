@@ -16,13 +16,13 @@ language:
   - node_js
 
 addons:
-  ssh_known_hosts: $ssh-host-ip
+  ssh_known_hosts: $SSH_HOST_IP
   apt:
     packages:
       - sshpass
 
 node_js:
-  - "6"
+  - node
 
 before_script:
   - npm install -g gulp
@@ -33,6 +33,8 @@ script:
 deploy:
   - provider: script
   - skip_cleanup: true
+  - script: scripts/deploy.sh
+  - on:
+        all_branches: true
+
 #  - script: sshpass -p $ssh-host-user-password rsync -r --delete-after --quiet -avz -e ssh $TRAVIS_BUILD_DIR/dist $ssh-host-user-username@$ssh-host-ip:$deploy-location
-#  - on:
-#        all_branches: true
