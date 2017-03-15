@@ -17,9 +17,6 @@ language:
 
 addons:
   ssh_known_hosts: $SSH_HOST_IP
-  apt:
-    packages:
-      - sshpass
 
 node_js:
   - node
