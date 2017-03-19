@@ -34,7 +34,7 @@ h2 {
       content: "";
       width: 25px;
       height: 3px;
-      background: #2ecc71;
+      background: @color-default-green;
       margin-top: 30px;
       @media (max-width: @media-width-tablet) {
         width: 100%;
@@ -79,4 +79,10 @@ hr {
 
 .selection() {
   background-color: @color-selector;
+}
+
+.overflow-hidden {
+  @media (min-width: @media-width-iphone-plus) {
+    overflow: hidden;
+  }
 }
