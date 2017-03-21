@@ -41,6 +41,15 @@ Issue the following command to build a proper release-variant of the application
 
     gulp build --env release
 
+## Bulding using TravisCI
+
+(blablabla)
+
+Important in regards to the ssh private key:
+
+* \n must be escaped with \\n
+* " " must be escaped with "\ "
+
 # Todos
 
 Notions: 
