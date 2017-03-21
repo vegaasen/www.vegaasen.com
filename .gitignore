@@ -3,6 +3,7 @@
 *.swp
 *.zip
 .idea
+*.local
 
 # Output generated stuff
 *.log

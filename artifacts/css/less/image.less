@@ -1,0 +1,26 @@
+.img-bordered {
+  border: 3px solid #2f2f2f;
+}
+
+.img-small {
+  width: 80px;
+}
+
+.img-medium {
+  width: 110px;
+}
+
+.img-large {
+  width: 160px;
+  @media (max-width: @media-width-tablet) {
+    width: 190px;
+  }
+  @media (max-width: @media-width-iphone), (max-width: @media-width-iphone-plus) {
+    width: 155px;
+  }
+}
+
+.img-full {
+  width: 100%;
+  height: 100%;
+}

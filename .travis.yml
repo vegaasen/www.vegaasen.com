@@ -1,0 +1,40 @@
+#
+# Simple Travis-CI deployment configuration for vegaasen.com. It basically uses sshpass and rsync to transfer files from
+# Travis-CI to vegaasen.com
+#
+# Documentation:
+# https://github.com/travis-ci/travis-ci/labels/apt-whitelist
+# https://travis-ci.org/vegaasen/vegaasen_com_version6/settings
+#
+#@since 23.02.2017
+#@author vegaasen
+
+language: node_js
+
+addons:
+  ssh_known_hosts: $SSH_HOST_IP
+
+node_js: node
+
+sudo: false
+
+cache:
+  directories:
+    node_modules
+
+before_script:
+  npm install -g gulp
+
+script: gulp build --env release
+
+# the deployment itself should deploy to various locations, such as beta.vegaasen.com and vegaasen.com (master and dev-branches)
+#  v-------
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: scripts/deploy.sh
+  on:
+    all_branches: true
+
+#  - script: sshpass -p $ssh-host-user-password rsync -r --delete-after --quiet -avz -e ssh $TRAVIS_BUILD_DIR/dist $ssh-host-user-username@$ssh-host-ip:$deploy-location
