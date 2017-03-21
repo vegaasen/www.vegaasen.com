@@ -9,36 +9,33 @@
 #@since 23.02.2017
 #@author vegaasen
 
-sudo:
-  - false
-
-language:
-  - node_js
+language: node_js
 
 addons:
   ssh_known_hosts: $SSH_HOST_IP
 
-node_js:
-  - node
+node_js: node
+
+sudo: false
 
 cache:
   directories:
-    - node_modules
+    node_modules
 
 before_script:
-  - npm install -g gulp
+  npm install -g gulp
 
-script:
-  - gulp build --env release
+script: gulp build --env release
 
 # the deployment itself should deploy to various locations, such as beta.vegaasen.com and vegaasen.com (master and dev-branches)
 #  v-------
 
 deploy:
-  - provider: script
-  - skip_cleanup: true
-  - script: scripts/deploy.sh
-  - on:
-      all_branches: true
+  provider: script
+  skip_cleanup: true
+  script: scripts/deploy.sh
+  on:
+    tags: true
+    all_branches: true
 
 #  - script: sshpass -p $ssh-host-user-password rsync -r --delete-after --quiet -avz -e ssh $TRAVIS_BUILD_DIR/dist $ssh-host-user-username@$ssh-host-ip:$deploy-location
