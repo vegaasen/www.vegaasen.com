@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+echo "Initiating deployment for vegaasen.com :-). Defining private key";
+
 SSH_KEY_NAME=host_private_key.pem;
 
-echo "Initiating deployment for vegaasen.com :-)";
+echo "Preparing ssh-agent";
 
 eval "$(ssh-agent -s)";
 
