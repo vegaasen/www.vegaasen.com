@@ -35,7 +35,6 @@ deploy:
   skip_cleanup: true
   script: scripts/deploy.sh
   on:
-    tags: true
     all_branches: true
 
 #  - script: sshpass -p $ssh-host-user-password rsync -r --delete-after --quiet -avz -e ssh $TRAVIS_BUILD_DIR/dist $ssh-host-user-username@$ssh-host-ip:$deploy-location
