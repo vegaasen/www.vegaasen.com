@@ -8,9 +8,6 @@
 
 This project represents the v6 of my own pages. 
 
-# Repos for all of your versions?
-
-Jeah..I know, I'll reassemble them in to tags instead - this is a cleanup-job I'll consider doing asap actually :-)
 
 # Build / Distribute
 
@@ -50,6 +47,16 @@ Important in regards to the ssh private key:
 * \n must be escaped with \\n
 * " " must be escaped with "\ "
 
+### Required properties
+
+These properties are required in the travis configuration in order to work properly
+
+* SSH_DEPLOYMENT_KEY ==> ---BEGIN---2312asdsad---END---
+    * Important: Read the ssh private key note above
+* SSH_DEPLPOYMENT_LOCATION ==> /my/deployment/location
+* SSH_HOST_IP ==> ssh.somewhere.com
+* SSH_HOST_USER_USERNAME ==> username
+
 # Todos
 
 Notions: 
@@ -83,4 +90,4 @@ REST-services will be hosted using PHP (at least in the beginning). This is rela
 
 ## Date
 
-04.01.2017
+21.03.2017

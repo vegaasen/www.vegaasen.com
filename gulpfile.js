@@ -39,8 +39,9 @@ var configuration = {
 };
 
 var extrasFiles = [
-    "artifacts/humans.txt",
-    "artifacts/robots.txt"
+    "extras/humans.txt",
+    "extras/robots.txt",
+    "extras/.htaccess"
 ];
 var jsExtFiles = [
     "node_modules/jquery/dist/jquery.js",

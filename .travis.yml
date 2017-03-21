@@ -36,5 +36,3 @@ deploy:
   script: chmod +x $TRAVIS_BUILD_DIR/scripts/deploy.sh && $TRAVIS_BUILD_DIR/scripts/deploy.sh
   on:
     branch: master
-
-#  - script: sshpass -p $ssh-host-user-password rsync -r --delete-after --quiet -avz -e ssh $TRAVIS_BUILD_DIR/dist $ssh-host-user-username@$ssh-host-ip:$deploy-location

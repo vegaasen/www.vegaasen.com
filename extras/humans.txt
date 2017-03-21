@@ -9,4 +9,4 @@
 	Last update:20??/??/??
 	Language: Norwegian / English
 	Doctype: HTML5
-	IDE: vim, Atom
+	IDE: vim, Atom, WebStorm
