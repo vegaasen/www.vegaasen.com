@@ -28,8 +28,8 @@ echo "Transferring files using rsync";
 
 if [ ${BETA} == 1 ]; then
     rsync -r --delete-after --quiet -avz -e "ssh -i ${SSH_KEY_NAME}" ${TRAVIS_BUILD_DIR}/dist/ ${SSH_HOST_USER_USERNAME}@${SSH_HOST_IP}:${SSH_DEPLOYMENT_LOCATION_BETA};
+    echo "Transfer completed to ${SSH_DEPLOYMENT_LOCATION_BETA} (Beta) :-)";
 else
     rsync -r --delete-after --quiet -avz -e "ssh -i ${SSH_KEY_NAME}" ${TRAVIS_BUILD_DIR}/dist/ ${SSH_HOST_USER_USERNAME}@${SSH_HOST_IP}:${SSH_DEPLOYMENT_LOCATION};
+    echo "Transfer completed to ${SSH_DEPLOYMENT_LOCATION} (Production) :-)";
 fi
-
-echo "Transfer completed to ${SSH_DEPLOYMENT_LOCATION} :-)";
