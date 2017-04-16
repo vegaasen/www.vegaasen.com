@@ -1,8 +1,6 @@
 # vegaasen.com v6
 
-# Build status
-
-[![Build Status](https://travis-ci.org/vegaasen/vegaasen_com_version6.svg?branch=VEG-001-redesign-no-angular)](https://travis-ci.org/vegaasen/vegaasen_com_version6)
+[![Build Status](https://travis-ci.org/vegaasen/vegaasen_com_version6.svg)](https://travis-ci.org/vegaasen/vegaasen_com_version6) [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/uxsolutions/bootstrap-datepicker/master/LICENSE)
 
 # Introduction
 
