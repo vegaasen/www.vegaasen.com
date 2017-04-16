@@ -41,6 +41,8 @@ var configuration = {
 var extrasFiles = [
     "extras/humans.txt",
     "extras/robots.txt",
+    "extras/latest.php",
+    "extras/battlenet.php",
     "extras/.htaccess"
 ];
 var jsExtFiles = [

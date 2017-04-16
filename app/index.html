@@ -48,16 +48,12 @@
     <div class="menu-wrap">
         <h1 class="logo text-center">vegaasen</h1>
         <span class="icon-remove menu-close"></span>
-        <a href="#introduction" class="smoothScroll">Home</a>
-        <a href="#hobbies" class="smoothScroll">Hobbies</a>
-        <a href="#tricksofthetrade" class="smoothScroll">Knowledge?</a>
-        <a href="#programming" class="smoothScroll">Current work</a>
-        <a href="#about" class="smoothScroll">About</a>
-        <a href="#contact" class="smoothScroll">Contact</a>
-        <a href="#"><span class="icon-facebook"></span></a>
-        <a href="#"><span class="icon-twitter"></span></a>
-        <a href="#"><span class="icon-dribbble"></span></a>
-        <a href="#"><span class="icon-envelope"></span></a>
+        <a href="#introduction" id="menu-introduction" class="smoothScroll">/wave</a>
+        <a href="#hobbies" id="menu-hobbies" class="smoothScroll">Hobbies</a>
+        <a href="#tricksofthetrade" id="menu-knowledge" class="smoothScroll">Knowledge?</a>
+        <a href="#programming" id="menu-current-fiddles" class="smoothScroll">Current fiddles</a>
+        <a href="#about" id="menu-about" class="smoothScroll">About</a>
+        <a href="#contact" id="menu-contact" class="smoothScroll">Reach out</a>
     </div>
     <div id="menuToggle"><i class="fa fa-bars" aria-hidden="true"></i></div>
 </nav>
@@ -84,20 +80,22 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="fancy-wrapper">
-                            <div class="fancy-heading"><h2 class="h2_heading">Trail running</h2></div>
+                            <div class="fancy-heading"><h2 class="h2_heading">Running</h2></div>
                             <div class="fancy-content">
                                 <div class="text-left">
                                     <p>
-                                        I spend quite a few hours per week running - primarily on trails.
-                                        It does not matter if it is in mountains, the norwegian forests or
-                                        wherever - as long as I'm in the great outdoors having good old fun with the
-                                        sensational feeling only running properly free can provide!
+                                        I spend quite a few hours running.
                                     </p>
                                     <p>
-                                        The initial &hearts; towards running started when I was younger, however it was in
-                                        my late twenties I started to once again rediscover the delicious joy and fun
-                                        being able to stride through miles and miles in discovered and undiscovered
-                                        terrain!
+                                        It does not matter if it is in the mountains, forest, morse or
+                                        wherever - as long as I'm in the great outdoors having fun with the
+                                        sensational feeling only running free can provide!
+                                    </p>
+                                    <p>
+                                        The initial &hearts; for running started when I was younger, however it was in
+                                        my late twenties I rediscovered the delicious fun &amp; joy
+                                        being able to stride through miles and miles of undiscovered terrain. No matter how hard
+                                        a day might have been; running always gives me joy and a mysterious feeling of replenishment.
                                     </p>
                                     <p>
                                         <code>#gettingthechilljusttothinkaboutit</code>
@@ -112,13 +110,14 @@
                             <div class="fancy-content">
                                 <div class="text-left">
                                     <p>
-                                        Cycling have always been a sport that have been on my top #10 list. Actually,
-                                        when I come to think of it, the love for cycling were already introduced to me
+                                        Cycling have always been a activity that have been on my top-10 list of things to do.
+                                        Actually - when I come to think of it - the love for cycling were already introduced to me
                                         as a 7 year old kid and have been sticking with me ever since.
+                                        In the recent years I've been participating in races concerning
+                                        road- and off-road-biking.
                                     </p>
                                     <p>
-                                        In the recent years I've been participating in races both within the
-                                        road-racing- and off-road-category. When cycling - something just fills my
+                                        When cycling - something just fills my
                                         body with energy as it is good to feel the speed, wind and energy a bike
                                         oozes.
                                     </p>
@@ -160,14 +159,14 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="column column-text_middle">
-                    <h2 class="text-uppercase h2_heading">about me</h2>
+                    <h2 class="text-uppercase h2_heading">vegard aasen</h2>
                     <dl>
                         <dt>Born</dt>
                         <dd>Odda, Hordaland, Norway</dd>
                     </dl>
                     <dl>
                         <dt>School</dt>
-                        <dd>Universitetet i Oslo / IFI</dd>
+                        <dd>University of Oslo</dd>
                     </dl>
                     <dl>
                         <dt>Degree</dt>
@@ -202,28 +201,30 @@
 <section id="programming" class="wrapper view-full_height view-background_white">
     <div class="wrapper">
         <div class="container splitted">
+            <h2 class="text-right text-uppercase">Currently fiddling with</h2>
             <div class="row thumbnails">
-                <h2 class="text-right text-uppercase">Currently fiddling with</h2>
                 <div class="col-lg-5">
                     <div class="thumbnail with-background with-background_iot">
                         <div class="caption">
                             <h4 class="text-uppercase">Internet of Things</h4>
                             <p>
-                                I have a lot of various projects at home, and the latest addition to my addiction is the
-                                IoT stuff that is happening right now. I find it very
-                                cool to
-                                connect all kinds of various components both within my own local playground
-                                and as well as connecting parts and pieces to other
-                                components out there.
+                                As well as touching a few subjects at work, I also have tied my self to a few projects
+                                at home. The latest addition to home-based projects is the IoT stuff that is happening right now.
+                                Connecting all kinds of various components together is fun, rewarding and including.
                             </p>
                             <p>
-                                Right now I'm working on a simple Raspberry PI thing that recongnizes me when I'm home
-                                from work or whatever. All written in Java and C++ + some
-                                web stuff.
+                                Right now I'm working with a system that works as a home-made security system.
+                                This system is quite simple, but then again quite sweet :-). It uses a variation of different
+                                sensors/components in the RaspberryPi/PiPy-sphere such as
+                                <code>camera</code>,
+                                <code>movement</code>,
+                                <code>IR</code>,
+                                <code>fire</code>,
+                                <code>water</code> &amp; more.
                             </p>
                             <p>
-                                There is just one problem with the IoT as I find it - and that is that the time is
-                                limited to only 24hrs a day.
+                                However, as fiddling with this stuff takes a while, I can only identify a single issue with this stuff,
+                                and that is that a single day is limited to 24hrs...
                             </p>
                         </div>
                     </div>
@@ -234,37 +235,48 @@
                             <h4 class="text-uppercase">AngularJS</h4>
                             <p>
                                 In the beginning of May 2016 I've again started working with AngularJS. It must have
-                                been just over a year the last time I touched this awesome
-                                framework,
+                                been just over a year the last time I touched this awesome framework,
                                 and I'm glad I'm back as it simplifies so much stuff regarding the front-end pieces.
                                 However, an AngularJS-nut is something I'm not.
+                            </p>
+                            <p>
+                                AngularJS is powering most of our internally brewed web applications in my division.
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-4">
                     <div class="thumbnail with-background with-background_raspberryPi">
                         <div class="caption">
                             <h4 class="text-uppercase">Raspberry PI</h4>
                             <p>
-                                Last year I bought my first small raspberry pi device. It didn't take long before stuff
-                                were installed to the small device. My first temperature and
-                                other measurements things were added to it - I guess this is what made me addicted to
-                                the IoT-sphere.
+                                In 2014 I bought my first Raspberry PI. It didn't take long before stuff
+                                were installed to the small thing. The first sensor that were added to this device was a
+                                temperature sensor. This was used to measure how my house keeps the heat during the days.
+                                As these data can be used to fine-tune the heater and stuff, it have been somewhat helpful.
+                            </p>
+                            <p>
+                                Additionally, the latest thing to connect two of my plants to the cloud, so that I can watch the moisture and heat
+                                throughout the day - alerting me in regards to watering etc. <strong>Totally pointless</strong> but yet so fun.
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2">
+            </div>
+            <div class="row thumbnails">
+                <div class="col-lg-3">
                     <div class="thumbnail with-background with-background_android">
                         <div class="caption">
                             <h4 class="text-uppercase">Android</h4>
                             <p>
-                                Lately I've been fiddling around with some new stuff like Android Wear things and
+                                Android is a OS that I've long been married with. It's a platform that I just &hearts;. I developed my
+                                first application back in 2008. This application was a "parcel-tracer" and used the SOAP-service that was
+                                publicly available through <a href="https://www.posten.no">posten.no</a> (REST wasn't adopted back then).
+                            </p>
+                            <p>
+                                Lately I've been fiddling around with some new stuff like Android Wear and
                                 Network Service Discovery (DNS-SD) in regards with an app I were
-                                working quite a bit on. The latest stuff is the Android Wear part - because its just so
-                                many sensors and whatnot on these devices/APIs. I'm
-                                in &hearts;
+                                working quite a bit on (Controlling Pinell-radios that were using the FS-API by Frontier Silicon).
                             </p>
                         </div>
                     </div>
@@ -275,26 +287,26 @@
                             <h4 class="text-uppercase">Docker</h4>
                             <p>
                                 The use of Docker in real-world scenarios is not on the rise for me, to be honest -
-                                however, I've been working quite some time with the
-                                containerization of deployments on my home projects. Latest addition is to dockerize all
-                                my IoT and other micro-service-applications that is hosted
-                                on either my server or Raspberry PIs
+                                however, I've been working with the containerization of deployments on my home projects in order to gain
+                                some knowledge about this abstraction technology. I've been dockerizing all my
+                                IoT, micro-service-applications and web applications that is hosted on servers or Raspberry PIs.
+                                By doing this, I've been able to deploy my stuff to devices quicker then before (avoiding that initial
+                                environmental setup).
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <div class="thumbnail with-background with-background_java">
                         <div class="caption">
-                            <h4 class="text-uppercase">Java &amp; micro-services</h4>
+                            <h4 class="text-uppercase">Micro-services</h4>
                             <p>
-                                Both at work and at home - all my applications is converted to be non-monolithic to
-                                simpler perform deployments and what not. However, as being one
-                                developer at work, the amount of extra stuff that must be carried out due to the new and
-                                fragmented way of working,
-                                it do actually create a bit of overhead. Oh well, in the long run - it is by far better
-                                than what were previously defined in terms of testing, time 2 market
-                                and what not.
+                                Both at work and at home - all my applications is converted to be non-monolithic. However, being a single developer
+                                at work, the amount of extra stuff that must be done in order to support such an architecture can
+                                lead to some overhead and that the development -> production may take a bit longer time. This were
+                                particulary noted when our team did not have plan on how to achieve microservice-based architecture.
+                                Oh well, in the long run - it is by far better than what were previously defined in terms of testing,
+                                time 2 market and what not - the initial conversion though, took a while.
                             </p>
                         </div>
                     </div>
@@ -309,66 +321,66 @@
 <section id="tricksofthetrade" class="view-full_height">
     <div class="container splitted">
         <h2 class="text-left text-uppercase">Tricks of the trade</h2>
-        <div class="row row-floating">
+        <div class="row row-floating thumbnail_no-background">
             <div class="col-lg-2 floating-left">
-                <div class="thumbnail">
+                <div class="thumbnail thumbnail_no-background">
                     <div class="thumbnail-image">
                         <canvas id="canvas-skills-java"></canvas>
                     </div>
                     <div class="caption">
                         <h4 class="text-uppercase">java 8</h4>
                         <p class="text-lowercase">
-                            Java has been my main language for about 7 years now. This is a
-                            language I'm never growing tired of. Always amazes me with new features!
+                            Java has been my main language for about 7 years. This is a
+                            language I'm never growing tired of
                         </p>
-                        <p><span class="label label-primary">main</span></p>
+                        <span class="label label-default">main</span>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 floating-left">
-                <div class="thumbnail">
+                <div class="thumbnail thumbnail_no-background">
                     <div class="thumbnail-image">
                         <canvas id="canvas-skills-dotnet"></canvas>
                     </div>
                     <div class="caption">
                         <h4 class="text-uppercase">C#</h4>
                         <p>
-                            C# and .net have not been priding my days lately, however I know the basics of the
-                            language as it were my primary language back in the days
+                            C# and .net have not been priding my days in the recent years. However I know the basics of the
+                            language as it were my primary language back previous to Java
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 floating-left">
-                <div class="thumbnail">
+                <div class="thumbnail thumbnail_no-background">
                     <div class="thumbnail-image">
                         <canvas id="canvas-skills-python3"></canvas>
                     </div>
                     <div class="caption">
                         <h4 class="text-uppercase">Python3</h4>
                         <p>
-                            Python is a language I've grew fund of lately. It might be due to getting more in to
-                            the world of WiPy and Rasp Pi. Still learning, though
+                            Python is a language I've grew fund of lately. I guess this have to do with me getting more in to
+                            the world of WiPy and Raspberry Pi. Still learning, though
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 floating-left">
-                <div class="thumbnail">
+                <div class="thumbnail thumbnail_no-background">
                     <div class="thumbnail-image">
                         <canvas id="canvas-skills-shell"></canvas>
                     </div>
                     <div class="caption">
                         <h4 class="text-uppercase">Bash/Shell</h4>
                         <p>
-                            Why include this? Well, a lot of stuff may be solved using scripts on the server-level. I
-                            master this quite well as it has always been related to day-to-day operations
+                            A lot of stuff can be solved using scripts. I
+                            master this quite well as it have always been related to my day-to-day operations
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 floating-left">
-                <div class="thumbnail">
+                <div class="thumbnail thumbnail_no-background">
                     <div class="thumbnail-image">
                         <canvas id="canvas-skills-php"></canvas>
                     </div>
@@ -376,13 +388,13 @@
                         <h4 class="text-uppercase">PHP</h4>
                         <p>
                             Not to brag, but I was quite a PHP-wiz back in the days - even committing to PHP Nuke! Oh
-                            well, those days are gone - but the knowledge is not..
+                            well, those days are gone now - but the knowledge is not..
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 floating-left">
-                <div class="thumbnail">
+                <div class="thumbnail thumbnail_no-background">
                     <div class="thumbnail-image">
                         <canvas id="canvas-skills-perl"></canvas>
                     </div>
@@ -390,13 +402,13 @@
                         <h4 class="text-uppercase">Perl</h4>
                         <p>
                             Oh Perl oh Perl. What a magic language you were - and forgotten you are - not been using it
-                            for some time, however knowledge exists
+                            for some time, however knowledge still exists. Wierdly enough Perl seems to back on the rise (according to <a href="https://www.tiobe.com/tiobe-index/perl/">TIOBE</a>)
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 floating-left">
-                <div class="thumbnail">
+                <div class="thumbnail thumbnail_no-background">
                     <div class="thumbnail-image">
                         <canvas id="canvas-skills-swift"></canvas>
                     </div>
@@ -404,13 +416,13 @@
                         <h4 class="text-uppercase">Swift</h4>
                         <p>
                             Lately I've been coding a bit Swift for fun in order to learn some Apple magix.
-                            Am I enjoing it? (silence..)
+                            Am I enjoying it? (..)
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 floating-left">
-                <div class="thumbnail">
+                <div class="thumbnail thumbnail_no-background">
                     <div class="thumbnail-image">
                         <canvas id="canvas-skills-android"></canvas>
                     </div>
@@ -418,13 +430,13 @@
                         <h4 class="text-uppercase">Android</h4>
                         <p>
                             I've been enjoying the Android platform for quite a while - creating apps with NFC, DNS-SL
-                            and much more fun stuff! Applications I know quite well - gaming, not so much.
+                            and much more fun stuff! Creating apps is something I master, however games? Not so much
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 floating-left">
-                <div class="thumbnail">
+                <div class="thumbnail thumbnail_no-background">
                     <div class="thumbnail-image">
                         <canvas id="canvas-skills-html5"></canvas>
                     </div>
@@ -434,11 +446,12 @@
                             As everyone else, I've been an addict of the HTMl5 bits and bobs for quite some time now -
                             however, some components is yet to be conquered &#1578;
                         </p>
+                        <span class="label label-default">main</span>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 floating-left">
-                <div class="thumbnail">
+                <div class="thumbnail thumbnail_no-background">
                     <div class="thumbnail-image">
                         <canvas id="canvas-skills-css3"></canvas>
                     </div>
@@ -446,50 +459,51 @@
                         <h4 class="text-uppercase">CSS3</h4>
                         <p>
                             Still learning the wonders of styling - however, I guess most of the styles is known to me -
-                            the composition is not
+                            the composition is something that I'm constantly learning
                         </p>
+                        <span class="label label-default">main</span>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 floating-left">
-                <div class="thumbnail">
+                <div class="thumbnail thumbnail_no-background">
                     <div class="thumbnail-image">
                         <canvas id="canvas-skills-angular"></canvas>
                     </div>
                     <div class="caption">
-                        <h4 class="text-uppercase">Angular</h4>
+                        <h4 class="text-uppercase">AngularJS</h4>
                         <p>
-                            Working with Angular or any other MVW style require more domain-knowledge than actual coding
-                            skills - just like Spring. This is something I'm working quite a lot with, and enjoys every
-                            bit of it!
+                            Working with Angular or any other MVVW style require more domain-knowledge than actual coding
+                            skills - just like the Spring framework in Java.
+                            This is something I'm working quite a lot with, and enjoys every bit of it
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 floating-left">
-                <div class="thumbnail">
+                <div class="thumbnail thumbnail_no-background">
                     <div class="thumbnail-image">
                         <canvas id="canvas-skills-nginx"></canvas>
                     </div>
                     <div class="caption">
                         <h4 class="text-uppercase">Nginx</h4>
                         <p>
-                            Nginx is a web server that I've been using both at work and at home. Loving the simplicity!
+                            Nginx is a web server that I've been using both at work and at home. Loving the reliability, performance &amp; simplicity
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 floating-left">
-                <div class="thumbnail">
+                <div class="thumbnail thumbnail_no-background">
                     <div class="thumbnail-image">
                         <canvas id="canvas-skills-apache"></canvas>
                     </div>
                     <div class="caption">
                         <h4 class="text-uppercase">Apache</h4>
                         <p>
-                            "Apache"? Wtf. Well, I'm referring to the HTTPd component of Apache - this component is
-                            something that I know quite well and master. Used professionally and at home
+                            The Apache/HTTPd-component is something that I know quite well and master. Used professionally and at home
                         </p>
+                        <span class="label label-default">main</span>
                     </div>
                 </div>
             </div>
@@ -513,22 +527,22 @@
         <div class="row">
             <div class="col-lg-4">
                 <h3 class="text_bold font-color_white text-lowercase">Write to me</h3>
-                <h3><a href="mailto:vegaasen@gmail.com">vegaasen@gmail.com</a></h3>
+                <h3><a href="mailto:vegaasen@gmail.com" id="socialize-email">vegaasen @ gmail . com</a></h3>
             </div>
             <div class="col-lg-4">
                 <h3 class="text_bold font-color_white text-lowercase">Give me a call</h3>
-                <h3 class="font-color_black"><a href="tel:004792683399">+47 926 83 399</a></h3>
+                <h3 class="font-color_black" id="socialize-telephone"><a href="tel:004792683399">+47 926 83 399</a></h3>
             </div>
             <div class="col-lg-4">
                 <h3 class="text_bold font-color_white text-lowercase">Socialize?</h3>
                 <h3>
-                    <a href="//linkedin.vegaasen.com"><i class="fa fa-linkedin"></i></a>
-                    <a href="//facebook.vegaasen.com"><i class="fa fa-facebook-square"></i></a>
-                    <a href="//twitter.vegaasen.com"><i class="fa fa-twitter-square"></i></a>
-                    <a href="//instagram.vegaasen.com"><i class="fa fa-instagram"></i></a>
-                    <a href="//github.vegaasen.com"><i class="fa fa-github"></i></a>
-                    <a href="//steam.vegaasen.com"><i class="fa fa-steam"></i></a>
-                    <a href="//spotify.vegaasen.com"><i class="fa fa-spotify"></i></a>
+                    <a href="//linkedin.vegaasen.com" id="socialize-linkedin"><i class="fa fa-linkedin"></i></a>
+                    <a href="//facebook.vegaasen.com" id="socialize-facebook"><i class="fa fa-facebook-square"></i></a>
+                    <a href="//twitter.vegaasen.com" id="socialize-twitter"><i class="fa fa-twitter-square"></i></a>
+                    <a href="//instagram.vegaasen.com" id="socialize-instagram"><i class="fa fa-instagram"></i></a>
+                    <a href="//github.vegaasen.com" id="socialize-github"><i class="fa fa-github"></i></a>
+                    <a href="//steam.vegaasen.com" id="socialize-steam"><i class="fa fa-steam"></i></a>
+                    <a href="//spotify.vegaasen.com" id="socialize-spotify"><i class="fa fa-spotify"></i></a>
                 </h3>
             </div>
         </div>

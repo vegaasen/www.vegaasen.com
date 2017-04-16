@@ -22,3 +22,12 @@
 .thumbnail-image {
   margin: 10px 27% 0 27%;
 }
+
+.thumbnail {
+  &.thumbnail_no-background {
+    @media (min-width: @media-width-tablet) {
+      background-color: inherit;
+      border: 0;
+    }
+  }
+}
