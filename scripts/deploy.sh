@@ -22,6 +22,6 @@ ssh-add ${SSH_KEY_NAME};
 
 echo "Transferring files using rsync";
 
-rsync -r --delete-after --quiet -avz -e "ssh -i ${SSH_KEY_NAME}" ${TRAVIS_BUILD_DIR}/dist/ ${SSH_HOST_USER_USERNAME}@${SSH_HOST_IP}:${SSH_DEPLPOYMENT_LOCATION};
+rsync -r --delete-after --quiet -avz -e "ssh -i ${SSH_KEY_NAME}" ${TRAVIS_BUILD_DIR}/dist/ ${SSH_HOST_USER_USERNAME}@${SSH_HOST_IP}:${SSH_DEPLOYMENT_LOCATION};
 
-echo "Transfer completed to ${SSH_DEPLPOYMENT_LOCATION} :-)";
+echo "Transfer completed to ${SSH_DEPLOYMENT_LOCATION} :-)";
