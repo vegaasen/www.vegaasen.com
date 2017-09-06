@@ -2,7 +2,7 @@
 <?php
 
     function getSafeQueryString($candidate) {
-        return empty($candidate) ? "null" : $candidate;
+        return empty($candidate) ? "null" : "'" . $candidate . "'";
     }
 
     /*
