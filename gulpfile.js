@@ -30,6 +30,7 @@ var debugEnvironment = env.make("debug");
 var distPath = "dist/";
 var configuration = {
     basePath: distPath,
+    iotPath: distPath + "iot/",
     cssDistPath: distPath + "css/",
     fontsDistPath: distPath + "fonts/google/",
     jsDistPath: distPath + "app/",
@@ -38,6 +39,10 @@ var configuration = {
     fontDistPath: distPath + "fonts/"
 };
 
+var iotFiles = [
+    "iot/thermostat.php",
+    "iot/database.php"
+];
 var extrasFiles = [
     "extras/humans.txt",
     "extras/robots.txt",
@@ -94,7 +99,7 @@ gulp.task("test", function () {
 gulp.task("clean", function () {
     return del(distPath + "*");
 });
-gulp.task("build", ["build-js", "build-css", "build-html", "build-images", "build-fonts", "build-extras"]);
+gulp.task("build", ["build-js", "build-css", "build-html", "build-images", "build-fonts", "build-extras", "build-iot"]);
 gulp.task("default", ["clean", "build"]);
 gulp.task('develop', ['watch', 'webServer']);
 
@@ -270,4 +275,9 @@ gulp.task("build-favicon", function () {
 gulp.task("build-extras", ["build-spoon", "build-favicon"], function () {
     return gulp.src(extrasFiles)
         .pipe(gulp.dest(configuration.basePath));
+});
+gulp.task("build-iot", function () {
+    return gulp
+        .src(iotFiles)
+        .pipe(gulp.dest(configuration.iotPath));
 });
