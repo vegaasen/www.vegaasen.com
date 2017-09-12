@@ -1,0 +1,89 @@
+<?php include '../database.php'; ?>
+<?php
+            $latest = select("SELECT * FROM  `iot_thermostat` ORDER BY  `iot_thermostat`.`when` DESC LIMIT 1")[0];
+            $today = select("SELECT * FROM `iot_thermostat` WHERE `when` > DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY `when` DESC");
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home >> Temperature</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="vegardaasen vegaasen developer java cool notSoCool nub awesome"/>
+    <meta name="author" content="the-bed-wetter@2017"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimal-ui"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="theme-color" content="#5dceb4">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+<nav id="main-navbar" class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">IOT@Home</a>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" href="#thermostat">Thermostat</a>
+        </li>
+    </ul>
+</nav>
+<div data-spy="scroll" data-target="#main-navbar" data-offset="0">
+    <div id="thermostat">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-3"><strong><?php echo $latest['temperature'];?></strong>&#8451;, <strong><?php echo $latest['humidity'];?></strong>%</h1>
+                <p class="lead">temperature/humidity registered by <?php echo $latest['location'];?> @ <?php echo $latest['when'];?></p>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    hei
+                </div>
+                <div class="col-md-6">
+                    <div id="chart_div"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+            ['Mushrooms', 3],
+            ['Onions', 1],
+            ['Olives', 1],
+            ['Zucchini', 1],
+            ['Pepperoni', 2]
+        ]);
+
+        // Set chart options
+        var options = {'title':'How Much Pizza I Ate Last Night',
+            'width':500,
+            'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+</script>
+</body>
+</html>

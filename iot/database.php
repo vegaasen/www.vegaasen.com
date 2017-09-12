@@ -29,6 +29,9 @@
         static $connection;
         if(!isset($connection)) {
             $config = parse_ini_file_quotes_safe('../_private/database.ini');
+            if(empty($config)) {
+                $config = parse_ini_file_quotes_safe('../../_private/database.ini');
+            }
             $database = $config['database'];
             if($database === null) {
                 return null;
