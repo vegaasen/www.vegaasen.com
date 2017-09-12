@@ -1,7 +1,7 @@
 <?php include '../database.php'; ?>
 <?php
             $latest = select("SELECT * FROM  `iot_thermostat` ORDER BY  `iot_thermostat`.`when` DESC LIMIT 1")[0];
-            $today = select("SELECT * FROM `iot_thermostat` WHERE `when` > DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY `when` ASC");
+            $today = select("SELECT * FROM `iot_thermostat` WHERE `when` > DATE_SUB(NOW(), INTERVAL 4 DAY) ORDER BY `when` ASC");
 ?>
 <!DOCTYPE html>
 <html>
