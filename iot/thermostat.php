@@ -16,6 +16,7 @@
     $location = $_GET['location'];
     $device = $_GET['device'];
     $author = $_GET['author'];
+    $outsideTemperature = $_GET['outsideTemperature'];
 
     $response = new stdClass();
     $response->status = "unspecified";
@@ -34,8 +35,8 @@
         $response->temperature = $temperature;
         $response->humidity = $humidity;
 
-        $thermostatQuery = "INSERT INTO `iot_thermostat` (`location`, `temperature`, `humidity`, `author`, `device`) VALUES ";
-        $thermostatQuery = $thermostatQuery . "(" . getSafeQueryString($location) . "," . getSafeQueryString($temperature) . "," . getSafeQueryString($humidity) . "," . getSafeQueryString($author) . "," . getSafeQueryString($device) . ")";
+        $thermostatQuery = "INSERT INTO `iot_thermostat` (`location`, `temperature`, `humidity`, `author`, `device`, `outsideTemperature`) VALUES ";
+        $thermostatQuery = $thermostatQuery . "(" . getSafeQueryString($location) . "," . getSafeQueryString($temperature) . "," . getSafeQueryString($humidity) . "," . getSafeQueryString($author) . "," . getSafeQueryString($device) . "," . getSafeQueryString($outsideTemperature) . ")";
 
         if (query($thermostatQuery)) {
             $response->status = "created";

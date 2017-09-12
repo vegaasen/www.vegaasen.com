@@ -40,8 +40,7 @@ var configuration = {
 };
 
 var iotFiles = [
-    "iot/thermostat.php",
-    "iot/database.php"
+    "iot/**"
 ];
 var extrasFiles = [
     "extras/humans.txt",
