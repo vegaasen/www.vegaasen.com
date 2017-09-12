@@ -1,7 +1,7 @@
 <?php include '../database.php'; ?>
 <?php
             $latest = select("SELECT * FROM  `iot_thermostat` ORDER BY  `iot_thermostat`.`when` DESC LIMIT 1")[0];
-            $today = select("SELECT * FROM `iot_thermostat` WHERE `when` > DATE_SUB(NOW(), INTERVAL 1 DAY) ORDER BY `when` DESC");
+            $today = select("SELECT * FROM `iot_thermostat` WHERE `when` > DATE_SUB(NOW(), INTERVAL 4 DAY) ORDER BY `when` ASC");
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,18 +35,16 @@
 <nav id="main-navbar" class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">IOT@Home</a>
     <ul class="nav nav-pills">
-        <li class="nav-item">
-            <a class="nav-link" href="#thermostat">Thermostat</a>
-            <a class="nav-link" href="#about">about.this</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="#thermostat">Thermostat</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">about.this</a></li>
     </ul>
 </nav>
 <div data-spy="scroll" data-target="#main-navbar" data-offset="0">
     <div id="thermostat">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-3"><strong><?php echo $latest['temperature'];?></strong>&#8451;, <strong><?php echo $latest['humidity'];?></strong>%</h1>
-                <p class="lead">temperature/humidity registered by <?php echo $latest['location'];?> @ <?php echo $latest['when'];?></p>
+                <h1 class="display-3"><strong><?php echo $latest['temperature'];?></strong>&#8451;, <strong><?php echo $latest['humidity'];?></strong>%, <strong><?php echo $latest['outsideTemperature'];?></strong>&#8451;</h1>
+                <p class="lead">temperature/humidity/outside temperature by <?php echo $latest['location'];?> @ <?php echo $latest['when'];?></p>
             </div>
         </div>
         <div class="container-fluid">
@@ -66,7 +64,7 @@
 <div class="footer-helper"></div>
 <footer class="footer">
     <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+        <span class="text-muted">vegaasen pointless IOT playground 2o17</span>
     </div>
 </footer>
 <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -84,11 +82,15 @@
         data.addColumn('number', 'Outside temperature');
         data.addRows([
             <?php
-            foreach ($today as $entry) {
-                if(isset($entry)) {
-                    echo "['" . $entry['when'] . "', " . $entry['temperature'] . ", " . $entry['humidity'] . ", " . $entry['outsideTemperature'] . "],";
+                foreach ($today as $entry) {
+                    if(isset($entry)) {
+                        $outsideTemperature = 0;
+                        if(isset($entry['outsideTemperature'])) {
+                            $outsideTemperature = $entry['outsideTemperature'];
+                        }
+                        echo "['" . $entry['when'] . "', " . $entry['temperature'] . ", " . $entry['humidity'] . ", " . $outsideTemperature . "],";
+                    }
                 }
-            }
             ?>
         ]);
         new google.visualization.AreaChart(document.getElementById('chart_div'))
