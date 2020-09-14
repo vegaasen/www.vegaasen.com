@@ -1,17 +1,7 @@
-# Computer-stuff
+
 .DS_Store
-*.swp
-*.zip
 .idea
-*.local
 
-# Output generated stuff
 *.log
-
-# Project related stuff
 node_modules
 dist
-.tmp
-bower_components
-test
-public
