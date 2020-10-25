@@ -37,7 +37,7 @@
     "@rollup/plugin-typescript": "^6.0.0",
     "@tsconfig/svelte": "^1.0.0",
     "husky": "^4.3.0",
-    "pretty-quick": "^3.0.2",
+    "pretty-quick": "^3.1.0",
     "rollup": "^2.32.1",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-svelte": "^6.0.0",
