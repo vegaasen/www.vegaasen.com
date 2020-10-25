@@ -1,6 +1,7 @@
 # vegaasen.com version 8
 
 [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/uxsolutions/bootstrap-datepicker/master/LICENSE)
+![GitHub license](https://badgen.net/dependabot/vegaasen/www.vegaasen.com/50295298?icon=dependabot)
 
 ## Introduction
 
