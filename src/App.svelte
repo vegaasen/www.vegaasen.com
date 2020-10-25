@@ -26,6 +26,6 @@
 
 <main>
     <h1>Hello {name}!</h1>
-    <p>the amazing site is MIA</p>
-    <p>but you're in luck - as within the next week, there might be!</p>
+    <p>the amazing site for vegard aasen is currently in ze works</p>
+    <p>you're in luck, though - as within the next week, there might just be one 🤩✨!</p>
 </main>
