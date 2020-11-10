@@ -1,10 +1,13 @@
 <style>
   .splash {
     position: relative;
-    min-height: calc(100vh - 200px);
+    min-height: 100vh;
     flex-direction: column;
     justify-content: center;
-    padding: 50px 40px 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .splash h1 {
@@ -15,6 +18,11 @@
     letter-spacing: -0.02em;
     z-index: 100;
     font-size: 5.882rem;
+    margin-top: 0;
+  }
+
+  h1 .highlight {
+    color: var(--highlight-color);
   }
 
   .ws-logo {
@@ -26,15 +34,25 @@
     background-color: black;
   }
 
-  @media (max-width: 960px) {
-    .splash {
-      padding: 10px 10px;
-    }
+  @media (max-width: 900px) {
     .splash h1 {
       font-weight: 700;
       line-height: 1.1;
-      font-size: 2.941rem;
+      font-size: 5rem;
     }
+  }
+
+  @media (max-width: 700px) {
+    .splash {
+      padding: 10px 10px;
+    }
+
+    .splash h1 {
+      font-weight: 700;
+      line-height: 1.1;
+      font-size: 2.3rem;
+    }
+
     .ws-logo {
       margin-top: 10px;
       width: 200px;
@@ -51,11 +69,13 @@
   <Container size="medium">
     <header>
       <h1>
-        Laoen, say hello to a Norwegian frontend enthusiast, backend lover and cleanness advocate working at
+        /wave from a Norwegian frontend enthusiast, backend lover and cleanness advocate working at
         <span class="black">
           <Link linkProps="{{ href: 'https://www.webstep.no', external: true }}"><img class="ws-logo" src="/images/webstep.png" alt="webstep logo" /></Link>
         </span>
-        creating awesome things
+        creating
+        <span class="highlight">awesome</span>
+        things
       </h1>
     </header>
   </Container>
