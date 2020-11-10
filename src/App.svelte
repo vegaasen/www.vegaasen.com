@@ -1,4 +1,8 @@
 <style>
+  :global(:root) {
+    --highlight-color: cornflowerblue;
+  }
+
   main {
     text-align: center;
     padding: 1em;
@@ -18,6 +22,7 @@
       max-width: none;
     }
   }
+
   @media (max-width: 960px) {
     main {
       max-width: 100%;
