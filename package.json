@@ -29,7 +29,7 @@
     "validate": "svelte-check"
   },
   "dependencies": {
-    "sirv-cli": "^1.0.8"
+    "sirv-cli": "^1.0.9"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
