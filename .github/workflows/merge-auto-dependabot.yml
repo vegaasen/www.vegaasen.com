@@ -1,0 +1,14 @@
+name: Automatic merge dependabot PRs
+on:
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dependabot Auto Merge
+        uses: ahmadnassri/action-dependabot-auto-merge@v2.2.0
+        with:
+          github-token: ${{ GH_ACCESS_TOKEN }}
+          command: merge
+          approve: true
+          target: minor
