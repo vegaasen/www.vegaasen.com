@@ -29,7 +29,10 @@
     "validate": "svelte-check"
   },
   "dependencies": {
-    "sirv-cli": "^1.0.10"
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "sirv-cli": "^1.0.10",
+    "svelte-fa": "^2.2.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",

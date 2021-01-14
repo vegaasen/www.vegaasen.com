@@ -27,6 +27,7 @@
   import Splash from './sections/Splash.svelte'
   import Navigation from './components/common/Navigation.svelte'
   import Developer from './sections/Developer.svelte'
+  import Footer from './components/common/Footer.svelte'
 </script>
 
 <main>
@@ -35,5 +36,6 @@
     <Splash />
   </main>
   <Developer />
-  <p>pages in the works - within the next week (..or so..), everything might be all done and jolly well 🤩✨!</p>
+  <p>pages in the works - within the next week (..or so..), everything might be all done and jolly well 🤩✨! maybe</p>
+  <Footer />
 </main>

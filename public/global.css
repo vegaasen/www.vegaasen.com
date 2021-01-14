@@ -65,3 +65,19 @@ button:not(:disabled):active {
 button:focus {
   border-color: #666;
 }
+
+.centered {
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-gap: 10px;
+  color: #444;
+}
+
+.grid-box {
+  border-radius: 5px;
+  padding: 20px;
+}

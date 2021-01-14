@@ -1,10 +1,11 @@
 <script lang="ts">
-  export type LinkProps = {
+  type LinkProps = {
     href: string
     class?: string
     external: boolean
     style?: string
   }
+  export { LinkProps }
   export let linkProps: LinkProps
 </script>
 
