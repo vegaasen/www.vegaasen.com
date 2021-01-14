@@ -30,7 +30,6 @@
 </style>
 
 <script lang="ts">
-  export let label: string
   export let quote: string
   export let by: string
   export let cite: string

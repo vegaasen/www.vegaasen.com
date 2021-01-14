@@ -36,6 +36,6 @@
     <Splash />
   </main>
   <Developer />
-  <p>pages in the works - within the next week (..or so..), everything might be all done and jolly well 🤩✨! maybe</p>
+  <p>pages in the works - within the next week (..or so..), everything might be all done and jolly well 🤩✨! maybe...</p>
   <Footer />
 </main>
