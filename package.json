@@ -38,7 +38,7 @@
     "@tsconfig/svelte": "^1.0.10",
     "husky": "^4.3.6",
     "prettier": "^2.2.1",
-    "prettier-plugin-svelte": "^1.4.2",
+    "prettier-plugin-svelte": "^2.1.0",
     "pretty-quick": "^3.1.0",
     "rollup": "^2.36.1",
     "rollup-plugin-css-only": "^3.1.0",
