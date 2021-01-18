@@ -38,7 +38,7 @@
     "@snowpack/plugin-typescript": "^1.2.0",
     "@tsconfig/svelte": "^1.0.10",
     "@types/snowpack-env": "^2.3.3",
-    "husky": "^4.3.7",
+    "husky": "^4.3.8",
     "prettier": "^2.2.1",
     "prettier-plugin-svelte": "^2.1.0",
     "pretty-quick": "^3.1.0",
