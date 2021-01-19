@@ -27,7 +27,7 @@
     "validate": "svelte-check"
   },
   "dependencies": {
-    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "svelte": "^3.31.2",
     "svelte-fa": "^2.2.0"
