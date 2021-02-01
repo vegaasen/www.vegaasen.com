@@ -6,7 +6,6 @@
     justify-content: center;
     padding: 0;
     display: flex;
-    justify-content: center;
     align-items: center;
   }
 
@@ -32,6 +31,7 @@
 
   .black {
     background-color: black;
+    padding-top: 6px;
   }
 
   @media (max-width: 900px) {
@@ -44,7 +44,7 @@
 
   @media (max-width: 700px) {
     .splash {
-      padding: 10px 10px;
+      padding: 0;
     }
 
     .splash h1 {

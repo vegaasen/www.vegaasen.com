@@ -1,17 +1,21 @@
 <style>
   .saying {
-    height: 50vh;
-    min-height: 450px;
-    background-color: rgb(232 230 230);
+    max-height: 70vh;
+    min-height: 350px;
+    background-color: rgb(247 247 247);
     text-align: left;
+    position: relative;
   }
 
-  .saying .saying-container {
+  .saying-container {
     max-width: 1000px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   figure {
-    top: 70px;
     font-size: 1.5em;
     position: relative;
     width: 100%;
@@ -26,6 +30,29 @@
 
   figcaption {
     text-align: right;
+  }
+
+  @media (max-width: 960px) {
+    .saying {
+      height: auto;
+      min-height: auto;
+      padding: 50px 0;
+    }
+
+    figure {
+      top: 0;
+      width: auto;
+    }
+
+    blockquote {
+      letter-spacing: -0.02em;
+      font-size: 2em;
+      word-break: break-all;
+    }
+
+    figcaption {
+      word-break: break-word;
+    }
   }
 </style>
 

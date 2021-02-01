@@ -5,7 +5,7 @@
 
   main {
     text-align: center;
-    padding: 1em;
+    padding: 0 1em;
     max-width: 240px;
     margin: 0 auto;
   }
@@ -19,6 +19,8 @@
   @media (max-width: 960px) {
     main {
       max-width: 100%;
+      padding: 1em;
+      margin: 0;
     }
   }
 </style>
@@ -26,8 +28,13 @@
 <script lang="ts">
   import Splash from './sections/Splash.svelte'
   import Navigation from './components/common/Navigation.svelte'
+  import MeetMe from './sections/MeetMe.svelte'
+  import Footer from './sections/Footer.svelte'
+  import WorkTogether from './sections/WorkTogether.svelte'
+  import About from './sections/About.svelte'
+  import Saying from './components/common/Saying.svelte'
+  import Parallax from './components/common/Parallax.svelte'
   import Developer from './sections/Developer.svelte'
-  import Footer from './components/common/Footer.svelte'
 </script>
 
 <main>
@@ -35,7 +42,11 @@
   <main>
     <Splash />
   </main>
+  <About />
   <Developer />
-  <p>pages in the works - within the next week (..or so..), everything might be all done and jolly well 🤩✨! maybe...</p>
+  <Saying by="Master Yoda" quote="Do or do not. There is no try." cite="Star Wars Episode V" />
+  <MeetMe />
+  <WorkTogether />
+  <Parallax />
   <Footer />
 </main>

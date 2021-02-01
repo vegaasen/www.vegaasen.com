@@ -2,4 +2,6 @@
 - https://www.martijnsnapper.com/
 - https://www.olivier-guilleux.com/
 - https://designshack.net/articles/inspiration/personal-portfolio-websites/
-- https://oscarmorrison.com/#welcome
+- https://oscarmorrison.com/#welcom
+- https://danielautry.com/about.html
+- http://www.amywutoo.com/

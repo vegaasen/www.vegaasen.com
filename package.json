@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/vegaasen/www.vegaasen.com#readme",
   "scripts": {
-    "start": "snowpack dev",
+    "start": "snowpack dev --reload",
     "build": "snowpack build",
     "validate": "svelte-check"
   },
