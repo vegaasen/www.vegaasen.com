@@ -33,7 +33,7 @@
     "svelte-fa": "^2.2.0"
   },
   "devDependencies": {
-    "@snowpack/plugin-dotenv": "^2.0.5",
+    "@snowpack/plugin-dotenv": "^2.1.0",
     "@snowpack/plugin-svelte": "^3.5.2",
     "@snowpack/plugin-typescript": "^1.2.1",
     "@tsconfig/svelte": "^1.0.10",
