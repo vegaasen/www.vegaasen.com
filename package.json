@@ -42,7 +42,7 @@
     "prettier": "^2.2.1",
     "prettier-plugin-svelte": "^2.2.0",
     "pretty-quick": "^3.1.0",
-    "snowpack": "^3.3.5",
+    "snowpack": "^3.3.7",
     "svelte-check": "^1.5.2",
     "svelte-preprocess": "^4.7.2",
     "tslib": "^2.2.0",
