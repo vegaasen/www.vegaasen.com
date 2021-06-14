@@ -45,7 +45,7 @@
     "snowpack": "^3.3.7",
     "svelte-check": "^1.5.2",
     "svelte-preprocess": "^4.7.3",
-    "tslib": "^2.2.0",
+    "tslib": "^2.3.0",
     "typescript": "^4.2.4"
   },
   "husky": {
