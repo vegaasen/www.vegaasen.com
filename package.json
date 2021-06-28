@@ -39,7 +39,7 @@
     "@tsconfig/svelte": "^1.0.10",
     "@types/snowpack-env": "^2.3.3",
     "husky": "^6.0.0",
-    "prettier": "^2.3.0",
+    "prettier": "^2.3.2",
     "prettier-plugin-svelte": "^2.2.0",
     "pretty-quick": "^3.1.0",
     "snowpack": "^3.3.7",
