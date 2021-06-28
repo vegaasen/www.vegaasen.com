@@ -30,7 +30,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "svelte": "^3.38.2",
-    "svelte-fa": "^2.2.0"
+    "svelte-fa": "^2.2.1"
   },
   "devDependencies": {
     "@snowpack/plugin-dotenv": "^2.1.0",
