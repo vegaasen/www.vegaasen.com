@@ -26,15 +26,15 @@
 </style>
 
 <script lang="ts">
-  import Splash from './sections/Splash.svelte'
-  import Navigation from './components/common/Navigation.svelte'
-  import MeetMe from './sections/MeetMe.svelte'
-  import Footer from './sections/Footer.svelte'
-  import WorkTogether from './sections/WorkTogether.svelte'
-  import About from './sections/About.svelte'
-  import Saying from './components/common/Saying.svelte'
-  import Parallax from './components/common/Parallax.svelte'
-  import Developer from './sections/Developer.svelte'
+  import Splash from '../sections/Splash.svelte'
+  import Navigation from '../components/common/Navigation.svelte'
+  import MeetMe from '../sections/MeetMe.svelte'
+  import Footer from '../sections/Footer.svelte'
+  import WorkTogether from '../sections/WorkTogether.svelte'
+  import About from '../sections/About.svelte'
+  import Saying from '../components/common/Saying.svelte'
+  import Parallax from '../components/common/Parallax.svelte'
+  import Developer from '../sections/Developer.svelte'
 </script>
 
 <main>
