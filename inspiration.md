@@ -1,5 +1,4 @@
 - https://www.aaronzarabi.com/
-- https://www.martijnsnapper.com/
 - https://www.olivier-guilleux.com/
 - https://designshack.net/articles/inspiration/personal-portfolio-websites/
 - https://oscarmorrison.com/#welcom

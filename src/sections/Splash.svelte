@@ -18,6 +18,8 @@
     z-index: 100;
     font-size: 5.882rem;
     margin-top: 0;
+      text-align: justify;
+      text-align: left;
   }
 
   h1 .highlight {
@@ -69,9 +71,10 @@
   <Container size="medium">
     <header>
       <h1>
-        /wave from a Norwegian frontend enthusiast, backend lover and cleanness advocate working at
+        'Laoen!<br/>
+        Name is Vegard Aasen! I'm a backend cowboy wrapped in a frontend-enthusiastic shell. Working at
         <span class="black">
-          <Link linkProps="{{ href: 'https://www.webstep.no', external: true }}"><img class="ws-logo" src="/images/webstep.png" alt="webstep logo" /></Link>
+          <Link linkProps="{{ href: 'https://www.webstep.no', external: true }}"><img class="ws-logo" src="/images/webstep.png" alt="webstep" /></Link>
         </span>
         creating
         <span class="highlight">awesome</span>
