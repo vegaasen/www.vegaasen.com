@@ -1,6 +1,0 @@
-- https://www.aaronzarabi.com/
-- https://www.olivier-guilleux.com/
-- https://designshack.net/articles/inspiration/personal-portfolio-websites/
-- https://oscarmorrison.com/#welcom
-- https://danielautry.com/about.html
-- http://www.amywutoo.com/
