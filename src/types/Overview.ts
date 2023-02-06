@@ -8,5 +8,5 @@ export type Overview = {
 export type DetailedOverview = {
   image: Picture
   title: string
-  content: string
+  content: any
 }

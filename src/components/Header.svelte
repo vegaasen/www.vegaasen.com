@@ -29,7 +29,7 @@
 
     button {
         position: fixed;
-        top: 1em;
+        top: 1.3em;
         right: 1em;
         width: 2.5em;
         height: 1.25em;
@@ -52,7 +52,7 @@
     }
 
     .ws-logo {
-        width: 100px;
+        width: 145px;
         filter: invert(100%);
     }
 

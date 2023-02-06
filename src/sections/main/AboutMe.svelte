@@ -20,7 +20,7 @@
 
 <section>
   <div class='content'>
-    <p>hello there,</p>
+    <p>howdy!</p>
     <h2>i'm vegard</h2>
     <div class='body'>
       <p>

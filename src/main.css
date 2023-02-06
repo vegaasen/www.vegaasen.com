@@ -1,3 +1,7 @@
+:root {
+    --default-blue-gray: #95b2c4;
+}
+
 @font-face {
     font-family: 'Theinhardt Medium';
     src: url('public/fonts/theinhardt-medium.woff') format("woff"), url("public/fonts/theinhardt-medium.ttf") format('truetype');
@@ -17,6 +21,12 @@ body {
     padding: 1em;
 }
 
+h3 {
+    font-size: 1em;
+    padding-left: 1.15em;
+    position: relative;
+}
+
 section {
     margin-bottom: 4em;
 }
@@ -26,6 +36,10 @@ section > h2 {
     margin-bottom: 2em;
     font-size: 1.7em;
     line-height: 1.08;
+}
+
+figure {
+    display: block;
 }
 
 ul {

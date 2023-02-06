@@ -8,11 +8,31 @@
 
 <style>
 
+    h3::before {
+        content: "";
+        position: absolute;
+        display: block;
+        background: #000;
+        top: 0.15em;
+        left: 0;
+        width: 0.8em;
+        height: 0.8em;
+        border-radius: 100%;
+    }
+
     .entry {
         position: relative;
         display: grid;
         grid-template-columns: repeat(2, 50%);
         grid-gap: 5px;
+    }
+
+    .image {
+        padding-right: 10%;
+    }
+
+    img {
+        max-width: 100%;
     }
 
 </style>
@@ -22,12 +42,14 @@
   {#each entries as entry}
     <div class='entry'>
       <div class='image'>
-        <img src={entry.image.url} alt={entry.image.caption}>
+        <figure>
+          <img src={entry.image.url} alt={entry.image.caption}>
+        </figure>
       </div>
       <div class='content'>
         <h3>{entry.title}</h3>
         <div>
-          {entry.content}
+          <svelte:component this={entry.content} />
         </div>
       </div>
     </div>
