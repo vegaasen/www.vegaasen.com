@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: yarn install
+        run: npm i
       - name: Build
-        run: yarn build
+        run: npm run build
       - name: Upload build to AWS S3
         uses: jakejarvis/s3-sync-action@v0.5.1
         with:
