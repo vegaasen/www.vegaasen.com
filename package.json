@@ -1,9 +1,12 @@
 {
+  "type": "module",
   "scripts": {
-    "build": "",
-    "dev": "npx tailwindcss -i src/site.css -o ./src/output.css --watch"
+    "build": "echo '🛠️  Building the site' && npx tailwindcss -i src/index.css -o ./src/v.min.css --minify && node scripts/html-minify.js",
+    "postbuild": "echo '🪄  Adding magic sause' && rm -rf build 2> /dev/null && mkdir build && mv ./src/v.min.css ./build/v.min.css && mv ./src/index.min.html ./build/index.html && cp -R ./src/i ./build/i && echo '🤩  Completed! See ./build/-folder'",
+    "dev": "npx tailwindcss -i src/index.css -o ./src/v.min.css --watch"
   },
   "devDependencies": {
+    "html-minifier": "^4.0.0",
     "tailwindcss": "^3.4.1"
   }
 }

@@ -4,4 +4,5 @@
 node_modules
 .svelte-kit
 build
-src/output.css
+*.min.css
+*.min.html
