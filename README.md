@@ -3,7 +3,7 @@
 <br/>
 <br/>
 <br/>
-<h1 align="center"><a href="http://www.vegaasen.com">www.vegaasen.com</a> <small>(v9)</small></h1>
+<h1 align="center" style="border-bottom-width: 0"><a href="http://www.vegaasen.com">www.vegaasen.com</a> <small>(v9)</small></h1>
 <p align="center">
   <a href="https://raw.githubusercontent.com/uxsolutions/bootstrap-datepicker/master/LICENSE"><img src="https://img.shields.io/badge/license-Apache%202-blue.svg" alt="GitHub license"/></a>
   <img src="https://github.com/vegaasen/www.vegaasen.com/actions/workflows/build.yml/badge.svg" alt="build status"/>
