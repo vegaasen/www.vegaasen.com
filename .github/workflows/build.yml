@@ -13,7 +13,7 @@ jobs:
       - name: Specify node version
         uses: actions/setup-node@v4
         with:
-          node-version: '21.x'
+          node-version: 'latest'
       - name: Cache node packages
         id: cache-npm
         uses: actions/cache@v3
