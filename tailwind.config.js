@@ -1,5 +1,9 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
+  future: {
+    // removeDeprecatedGapUtilities: true,
+    // purgeLayersByDefault: true,
+  },
+  purge: [],
   content: ["./src/**/*.{html,js}"],
   theme: {
     screens: {
@@ -11,6 +15,6 @@ module.exports = {
       '2xl': '1536px',
     }
   },
+  variants: {},
   plugins: [],
 }
-
