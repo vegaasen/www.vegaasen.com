@@ -5,13 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
         content="CV and short portfolio for Vegard Aasen, a developer living in Konnerud, Drammen working in Webstep creating awesome stuff">
-  <!--meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; data 'self;"-->
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Vegard Aasen - Frontend Enthusiast">
+  <meta property="og:description" content="Portfolio of Vegard Aasen, a Norwegian frontend enthusiast and backend geek">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
   <title>Vegard Aasen - An enthusiastic programmer at your service</title>
   <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
   <link href="./v.min.css" rel="stylesheet">
 </head>
 <body class="pb-10">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-black focus:text-white focus:rounded">Skip to main content</a>
 <div class="overflow-x-hidden">
   <div class="flex flex-col items-center justify-between s:px-5 sm:px-20 xl:px-40 mx-auto">
     <header class="relative ml-auto s:mb-[50px] xl:mb-[100px]">
@@ -31,7 +37,7 @@
           class="s:text-4xl md:text-5xl xl:text-6xl sm:max-w-[780px] s:ml-6 md:ml-40 xl:ml-96 transition-all duration-300">
           — a Norwegian frontend enthusiast, backend geek and neatness advocate working at
           <a href="https://www.webstep.no" class="bg-black px-3 pb-2 plain" target="_blank">
-            <img class="inline xl:max-w-[175px] s:max-w-[130px] invert" src="i/webstep.svg" alt="webstep logo">
+            <img class="inline xl:max-w-[175px] s:max-w-[130px] invert" src="i/webstep.svg" alt="webstep logo" loading="lazy">
           </a>
           creating awesome things
         </h2>
@@ -72,7 +78,7 @@
       </div>
     </section>
     <section class="mb-28">
-      <h1 class="w-auto s:text-5xl md:text-8xl xl:text-9xl s:font-bold s:mx-5 xl:mx-52 s:mb-16 xl:mb-28">
+      <h2 class="w-auto s:text-5xl md:text-8xl xl:text-9xl s:font-bold s:mx-5 xl:mx-52 s:mb-16 xl:mb-28">
         What can you expect from me?
       </h1>
       <div class="flex flex-wrap flex-row gap-4 s:w-full xl:w-10/12 float-end s:text-4xl xl:text-6xl">
@@ -102,6 +108,7 @@
         </h2>
       </div>
     </section>
+    <main id="main-content">
     <section
       class="ml-30 s:mb-10 md:mb-36 s:ml-1 md:ml-14 xl:ml-20 md:mr-8 sm:max-w-[800px] transition-all duration-300 s:text-2xl xl:text-4xl gap-10 flex flex-col">
       <div>
@@ -133,6 +140,7 @@
         </g>
       </svg>
     </section>
+    </main>
     <footer class="w-full flex justify-between items-center">
       <div>Baked by vegard &hearts; aasen</div>
       <div class="s:hidden xl:block">
@@ -149,7 +157,7 @@
     </footer>
   </div>
 </div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6NKGPWN4F"></script>
+<script defer src="https://www.googletagmanager.com/gtag/js?id=G-R6NKGPWN4F"></script>
 <script>
   window.dataLayer = window.dataLayer || []
 
