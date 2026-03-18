@@ -94,7 +94,7 @@ For now, manual testing via browser is sufficient.
 - Files: kebab-case (e.g., `html-minify.js`)
 - CSS classes: kebab-case (e.g., `.wave-animation`)
 - JavaScript variables/functions: camelCase (e.g., `minifyHtml`)
-- Constants: UPPER_SNAKE_CASE (e.g., `DEFAULT_BASE_FOLDER`)
+- Constants: UPPER_SNAKE_CASE (e.g., `MAX_RETRIES`)
 - HTML ids: kebab-case (e.g., `main-content`)
 
 ### File Organization
@@ -103,11 +103,17 @@ For now, manual testing via browser is sufficient.
 /src
   index.html      # Main HTML file
   index.css       # Tailwind source + custom styles
+  v.min.css       # Generated CSS (intermediate, moved to build/)
   /i              # Images and assets (photos, logos, SVGs)
 /scripts
-  *.js            # Build scripts
+  html-minify.js  # HTML minification build script
+/.github
+  /workflows
+    build.yml               # CI/CD: builds and deploys to S3 on push to master
+    merge-auto-dependabot.yml
 /build            # Generated output (do not edit manually)
-/tailwind.config.js
+tailwind.config.js  # Custom screen breakpoints
+postcss.config.js   # PostCSS config with @tailwindcss/postcss plugin
 package.json
 ```
 
@@ -150,10 +156,11 @@ package.json
 
 ## Deployment
 
-- The site is hosted on Amazon S3
-- Run `npm run build` before deployment
-- Upload contents of `./build/` folder to S3
-- Configure S3 for static website hosting
+- The site is hosted on Amazon S3 (`eu-north-1` region)
+- Deployment is automated via GitHub Actions on push to `master`
+- The workflow (`.github/workflows/build.yml`) runs `npm run build` and syncs `./build/` to S3
+- AWS credentials are stored as GitHub Actions secrets (`AWS_S3_BUCKET`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`)
+- For manual deployment: run `npm run build` and upload `./build/` contents to S3
 - Set appropriate cache headers for assets
 
 ## Important Notes
@@ -162,5 +169,4 @@ package.json
 - Images are stored in `src/i/`
 - The build output in `./build/` is what gets deployed
 - Version history is tracked in README.md
-- No CI/CD is currently configured - manual deployment
 - Keep the site lightweight and fast-loading

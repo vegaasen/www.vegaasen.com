@@ -1,11 +1,11 @@
-import { minify } from 'html-minifier'
+import { minify } from 'html-minifier-terser'
 import { readFile, writeFile } from 'node:fs/promises'
 
 const defaultBaseFolder = 'src/'
 
 try {
   const indexHtml = await readFile(`${defaultBaseFolder}/index.html`, { encoding: 'utf8' })
-  const minifiedContent = minify(indexHtml, {
+  const minifiedContent = await minify(indexHtml, {
     removeAttributeQuotes: true,
     removeComments: true,
     collapseWhitespace: true,
