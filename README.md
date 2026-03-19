@@ -15,7 +15,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Tailwind%20CSS-v4-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS v4"/>
   <img src="https://img.shields.io/badge/HTML5-plain-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5"/>
-  <img src="https://img.shields.io/badge/Node.js-LTS-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js LTS"/>
+  <img src="https://img.shields.io/badge/Bun-latest-FBF0DF?style=flat-square&logo=bun&logoColor=black" alt="Bun"/>
   <img src="https://img.shields.io/badge/Amazon%20S3-hosted-FF9900?style=flat-square&logo=amazons3&logoColor=white" alt="Amazon S3"/>
   <img src="https://img.shields.io/badge/CloudFront-CDN-FF9900?style=flat-square&logo=amazonaws&logoColor=white" alt="Amazon CloudFront"/>
 </p>
@@ -44,7 +44,7 @@ The site may be created with new and fancy tech, or it may be just über-static 
 |---|---|
 | [Tailwind CSS v4](https://tailwindcss.com) | Styling |
 | Plain HTML5 | Markup |
-| [Node.js](https://nodejs.org) | Build scripts |
+| [Bun](https://bun.sh) | Package manager + build script runner |
 | [SVGO](https://github.com/svg/svgo) | SVG optimisation |
 | [Squoosh](https://squoosh.app) | Image optimisation |
 | [Amazon S3](https://aws.amazon.com/s3/) | Static hosting (`eu-north-1`) |
@@ -58,7 +58,7 @@ The site may be created with new and fancy tech, or it may be just über-static 
 ## Run
 
 ```bash
-npm run dev
+bun dev
 ```
 
 Then open `src/index.html` in any browser 💥.
@@ -66,7 +66,7 @@ Then open `src/index.html` in any browser 💥.
 ## Build
 
 ```bash
-npm run build
+bun run build
 ```
 
 Output lands in `./build/` — that's what gets deployed to S3.
