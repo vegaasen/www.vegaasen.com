@@ -6,9 +6,9 @@
     "dev": "open http://localhost:63342/www.vegaasen.com/src/index.html?_ijt=qk2mpclb0ib3s63j18frgpj66m&_ij_reload=RELOAD_ON_CHANGE && npx tailwindcss -i src/index.css -o ./src/v.min.css --watch"
   },
   "devDependencies": {
+    "@minify-html/node": "^0.18.1",
     "@tailwindcss/cli": "^4.2.2",
     "@tailwindcss/postcss": "^4.2.2",
-    "html-minifier-terser": "^7.2.0",
     "sharp": "^0.34.5",
     "svgo": "^4.0.1",
     "tailwindcss": "^4.2.2"

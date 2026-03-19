@@ -9,7 +9,7 @@ const OUT_DIR = 'build/i'
 
 const SHARP_OPTIONS = {
   // quality 75 + resize keeps file small while looking great on retina displays
-  webp: { quality: 75 },
+  webp: { quality: 80 },
   webpMaxWidth: 1200,
   png: { compressionLevel: 9, effort: 10 },
 }
