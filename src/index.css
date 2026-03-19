@@ -18,14 +18,20 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
-}
 
-@keyframes opacityZeroToHero {
-  0% {
-    opacity: 0;
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
   }
-  100% {
-    opacity: 1;
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -55,12 +61,56 @@
   animation: 500ms ease-out 0s 1 slideLeft;
 }
 
+.animated-ftw {
+  background: linear-gradient(
+    90deg,
+    rgba(120, 117, 117, 0.75), #7282c1, #6e98b3,
+    #7ca4bc, #a8b6c3, #bbbdbd, #c5cbd3
+  );
+  background-size: 360% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: rainbow-flow 8.0s linear infinite;
+  display: inline-block;
+}
+
+@keyframes rainbow-flow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
 .meet-me {
   animation: 500ms ease-out 0s 1 slideRight;
 }
 
-:root {
-  --link-width: 1px
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0a0a0a;
+    color: #f5f5f5;
+  }
+
+  a:after {
+    background: #f5f5f5;
+  }
+
+  .link:after,
+  .reverse:after {
+    background: #f5f5f5;
+  }
+
+  .bg-black {
+    background-color: #f5f5f5;
+  }
+
+  .invert {
+    filter: invert(1);
+  }
+
+  img[src*="webstep"] {
+    filter: invert(1);
+  }
 }
 
 body {

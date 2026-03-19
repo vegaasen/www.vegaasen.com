@@ -13,10 +13,10 @@ jobs:
       - name: Specify node version
         uses: actions/setup-node@v4
         with:
-          node-version: 'latest'
+          node-version: 'lts/*'
       - name: Cache node packages
         id: cache-npm
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: cache-node-packages
         with:
@@ -30,13 +30,21 @@ jobs:
         run: npm i
       - name: Build
         run: npm run build
-      - name: Upload build to AWS S3
-        uses: jakejarvis/s3-sync-action@v0.5.1
+      - name: Configure AWS credentials
+        if: github.ref == 'refs/heads/master'
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          args: --acl public-read --follow-symlinks --delete
-        env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'eu-north-1'
-          SOURCE_DIR: 'build'
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: 'eu-north-1'
+      - name: Upload build to AWS S3
+        if: github.ref == 'refs/heads/master'
+        # Note: --acl public-read removed - bucket is private, access via CloudFront OAC
+        run: aws s3 sync build/ s3://${{ secrets.AWS_S3_BUCKET }} --follow-symlinks --delete
+      - name: Invalidate CloudFront cache
+        if: github.ref == 'refs/heads/master'
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*" \
+            --region us-east-1
