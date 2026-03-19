@@ -1,0 +1,17 @@
+# Local Terraform state (use remote S3 backend instead)
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Local variable overrides with potentially sensitive values
+terraform.tfvars
+*.auto.tfvars
+
+# Plan files
+tfplan
+*.tfplan
+
+# Crash log files
+crash.log
+crash.*.log
