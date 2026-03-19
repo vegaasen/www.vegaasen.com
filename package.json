@@ -2,8 +2,8 @@
   "type": "module",
   "scripts": {
     "build": "echo '🛠️  Building the site' && npx tailwindcss -i src/index.css -o ./src/v.min.css --minify && node scripts/html-minify.js",
-    "postbuild": "echo '🪄  Adding magic sause' && rm -rf build 2> /dev/null && mkdir build && mv ./src/v.min.css ./build/v.min.css && mv ./src/index.min.html ./build/index.html && cp -R ./src/i ./build/i && echo '🤩  Completed! See ./build/-folder'",
-    "dev": "npx tailwindcss -i src/index.css -o ./src/v.min.css --watch"
+    "postbuild": "echo '🪄  Adding magic sause' && rm -rf build 2> /dev/null && mkdir build && mv ./src/v.min.css ./build/v.min.css && mv ./src/index.min.html ./build/index.html && cp -R ./src/i ./build/i && cp ./src/sitemap.xml ./build/sitemap.xml && cp ./src/robots.txt ./build/robots.txt && cp ./src/site.webmanifest ./build/site.webmanifest && echo '🤩  Completed! See ./build/-folder'",
+    "dev": "open http://localhost:63342/www.vegaasen.com/src/index.html?_ijt=qk2mpclb0ib3s63j18frgpj66m&_ij_reload=RELOAD_ON_CHANGE && npx tailwindcss -i src/index.css -o ./src/v.min.css --watch"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.2",
