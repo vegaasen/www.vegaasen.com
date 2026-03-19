@@ -26,8 +26,9 @@ The site may be created with new and fancy tech, or, it may be just über-static
 * Tailwind
 * Plain Old HTML
 * SVGO
-* Sqoosh
+* Sqooosh
 * Amazon S3 (hosting)
+* Amazon Cloudfront (CDN + certificates)
 
 # 🛠️ Develop
 
@@ -45,13 +46,6 @@ And then just open the index.html with any browser 💥.
 npm run build
 ```
 
-# Misc
-
-## Previous NS for vegaasen.com
-
-- ns01.one.com
-- ns02.one.com
-
 # #isitfinishedyet?
 
 no.
@@ -62,3 +56,4 @@ no.
     * 02.04.2024
 * v8
     * 14.09.2020
+
