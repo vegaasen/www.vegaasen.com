@@ -1,0 +1,16 @@
+{
+  "name": "Vegard Aasen",
+  "short_name": "vegaasen",
+  "description": "Portfolio and CV of Vegard Aasen — Norwegian fullstack developer and consultant.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/i/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
