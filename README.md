@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <sub>Last deployed: <!-- LAST_DEPLOYED --> never (trigger a deploy to update)</sub>
+  <sub>Last deployed: <!-- LAST_DEPLOYED --> 2026-03-19 21:43 UTC
 </p>
 
 <br/>
