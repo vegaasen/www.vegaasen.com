@@ -1,15 +1,6 @@
 @import 'tailwindcss';
-
 @config '../tailwind.config.js';
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -35,6 +26,17 @@
   }
 }
 
+@keyframes wave {
+  0%   { transform: rotate(0deg); }
+  15%  { transform: rotate(14deg); }
+  30%  { transform: rotate(-8deg); }
+  40%  { transform: rotate(14deg); }
+  50%  { transform: rotate(-4deg); }
+  60%  { transform: rotate(10deg); }
+  70%  { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
 @keyframes slideRight {
   0% {
     transform: translateX(5%);
@@ -57,34 +59,6 @@
   }
 }
 
-.hey {
-  animation: 500ms ease-out 0s 1 slideLeft;
-}
-
-.animated-ftw {
-  background: linear-gradient(
-    90deg,
-    rgba(120, 117, 117, 0.75), #7282c1, #6e98b3,
-    #7ca4bc, #a8b6c3, #bbbdbd, #c5cbd3
-  );
-  background-size: 360% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation: rainbow-flow 8.0s linear infinite;
-  display: inline-block;
-}
-
-@keyframes rainbow-flow {
-  0%   { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-
-.meet-me {
-  animation: 500ms ease-out 0s 1 slideRight;
-}
-
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #0a0a0a;
@@ -104,11 +78,7 @@
     background-color: #f5f5f5;
   }
 
-  .invert {
-    filter: invert(1);
-  }
-
-  img[src*="webstep"] {
+  .logo-invert {
     filter: invert(1);
   }
 }
@@ -121,8 +91,24 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.wave:hover {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns= 'http://www.w3.org/2000/svg' width= '40' height= '48' viewport= '0 0 100 100' style= 'fill:black;font-size:30px;' ><text y= '50%' >👋</text></svg>") 15 10, auto;
+.hey {
+  &:hover::after {
+    content: "👋";
+    position: fixed;
+    pointer-events: none;
+    animation: wave 1s ease infinite;
+    transform-origin: 70% 70%;
+  }
+}
+
+.meet-me {
+  animation: 500ms ease-out 0s 1 slideRight;
+}
+
+.wave {
+  &:hover {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns= 'http://www.w3.org/2000/svg' width= '40' height= '48' viewport= '0 0 100 100' style= 'fill:black;font-size:30px;' ><text y= '50%' >👋</text></svg>") 15 10, auto;
+  }
 }
 
 a {

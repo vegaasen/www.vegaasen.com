@@ -7,7 +7,8 @@
         content="Portfolio and CV of Vegard Aasen — Norwegian fullstack developer, frontend enthusiast and consultant at Webstep, based in Konnerud, Drammen.">
   <meta name="author" content="Vegard Aasen">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Vegard Aasen — Norwegian Fullstack Developer & Consultant">
@@ -17,8 +18,8 @@
   <meta property="og:site_name" content="Vegard Aasen">
   <meta property="og:locale" content="en_GB">
   <meta property="og:image" content="https://vegaasen.com/i/vaa.webp">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="675">
+  <meta property="og:image:width" content="1400">
+  <meta property="og:image:height" content="1073">
   <meta property="og:image:alt" content="Vegard Aasen out running in Catalonia, Spain">
 
   <!-- Twitter / X -->
@@ -37,7 +38,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/i/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link href="./v.min.css" rel="stylesheet">
 </head>
 <body class="pb-10">
@@ -56,36 +60,52 @@
     <main class="flex flex-col items-center justify-between s:px-5 sm:px-20 xl:px-40 mx-auto" id="main-content">
       <section class="flex flex-col w-full">
         <h1
-          class="wave s:mb-7 md:mb-14 xl:mb-16 max-w-fit sm:max-w-[520px] md:ml-10 xl:ml-72 transition-all duration-300 s:text-6xl md:text-7xl xl:text-8xl font-bold">
-          <span class="hey block animated-ftw">Hey,</span>
+          class="s:mb-7 md:mb-14 xl:mb-16 max-w-fit sm:max-w-[520px] md:ml-10 xl:ml-72 transition-all duration-300 s:text-6xl md:text-7xl xl:text-8xl font-bold">
+          <span class="wave hey block">Hey,</span>
           <span class="meet-me block">I'm Vegard Aasen</span>
         </h1>
         <p
           class="s:text-4xl md:text-5xl xl:text-6xl sm:max-w-[780px] s:ml-6 md:ml-40 xl:ml-96 transition-all duration-300">
           — a Norwegian frontend enthusiast, backend geek and neatness advocate working at
-          <a href="https://www.webstep.no" class="bg-black px-3 pb-2 plain" target="_blank" rel="noopener noreferrer">
-            <img class="inline xl:max-w-[175px] s:max-w-[130px] invert"
+          <a href="https://www.webstep.no" class="bg-gray-200 ps-8 pe-5 z-50 pb-2 plain rounded-md" target="_blank" rel="noopener noreferrer">
+            <img class="inline xl:max-w-[190px] s:max-w-[130px]"
                  src="i/webstep.svg"
                  alt="Webstep logo"
-                 loading="lazy">
+                 width="190"
+                 height="37"
+                 loading="lazy"
+                 decoding="async">
           </a>
           creating awesome things
         </p>
       </section>
       <section
-        style="background-image: url('i/vaa.webp');"
         aria-label="Photo of Vegard Aasen running in Catalonia, Spain"
-        class="relative w-full h-auto aspect-video xl:rounded-2xl overflow-hidden mx-auto bg-cover bg-center s:my-20 md:my-32 xl:my-40 s:scale-125 2xl:scale-100">
-        <p class="hidden">This is a placeholder image for Vegard Aasen - he's out running in Catalonia, Spain 2024</p>
+        class="relative w-full h-auto aspect-video xl:rounded-2xl overflow-hidden mx-auto s:my-20 md:my-32 xl:my-40 s:scale-125 2xl:scale-100">
+        <picture>
+          <source srcset="i/vaa.avif" type="image/avif">
+          <img
+            class="absolute inset-0 w-full h-full object-cover object-center logo-webstep"
+            src="i/vaa.webp"
+            alt="Vegard Aasen out running in Catalonia, Spain"
+            width="1400"
+            height="1073"
+            fetchpriority="high"
+            decoding="async">
+        </picture>
       </section>
       <section
         class="mb-28 sm:ml-2 md:ml-14 xl:ml-20 md:mr-8 sm:max-w-[780px] transition-all duration-300 s:text-2xl md:text-3xl xl:text-4xl gap-10 flex flex-col">
         <div>
           I've been creating awesome solutions for a good 16 years for customers. What makes me go forward is the constant
           desire to help teams and customer solutions fly.
-          After being a consultant at <img class="inline s:max-w-[85px] md:max-w-[110px] xl:max-w-[150px] mb-[5px]"
+          After being a consultant at <img class="inline s:max-w-[85px] md:max-w-[110px] xl:max-w-[150px] mb-[5px] logo-invert"
                                            src="i/webstep.svg"
-                                           alt="Webstep logo">
+                                           alt="Webstep logo"
+                                           width="140"
+                                           height="37"
+                                           loading="lazy"
+                                           decoding="async">
           for 8 years+ — a lot of various cases, technology choices and people have been met, meaning I'm up for most
           tasks out there.
         </div>
@@ -112,27 +132,27 @@
         </h2>
         <div class="flex s:flex-wrap flex-col md:flex-row gap-4 s:text-4xl xl:text-7xl">
           <p
-            class="bg-amber-200 basis-1/4 grow min-h-[350px] xl:min-h-[500px] rounded-3xl xl:rounded-sm p-[30px] xl:p-[50px] xl:w-[calc(66.66%-10px)]">
+            class="bg-amber-200 dark:bg-emerald-500 basis-1/4 grow min-h-[350px] xl:min-h-[500px] rounded-3xl xl:rounded-sm p-[30px] xl:p-[50px] xl:w-[calc(66.66%-10px)]">
             Years of experience, big energy and fresh thinking.
           </p>
           <p
-            class="bg-blue-300 basis-2/4 grow min-h-[350px] xl:min-h-[500px] rounded-3xl xl:rounded-sm p-[30px] xl:p-[50px] w-full xl:w-[calc(66.66%-10px)]">
+            class="bg-blue-300 dark:bg-blue-400 basis-2/4 grow min-h-[350px] xl:min-h-[500px] rounded-3xl xl:rounded-sm p-[30px] xl:p-[50px] w-full xl:w-[calc(66.66%-10px)]">
             Listen, challenge and reconnect the dots — joining teams humble and open.
           </p>
           <p
-            class="bg-emerald-100 basis-2/4 grow min-h-[350px] xl:min-h-[500px] rounded-3xl xl:rounded-sm p-[30px] xl:p-[50px] w-full xl:w-[calc(66.66%-10px)]">
+            class="bg-emerald-100 dark:bg-red-300 basis-2/4 grow min-h-[350px] xl:min-h-[500px] rounded-3xl xl:rounded-sm p-[30px] xl:p-[50px] w-full xl:w-[calc(66.66%-10px)]">
             Bridge the gap between programmers and the business — speaking fluently both languages.
           </p>
           <p
-            class="bg-blue-100 basis-1/4 grow min-h-[350px] xl:min-h-[500px] rounded-3xl xl:rounded-sm p-[30px] xl:p-[50px] w-full xl:w-[calc(66.66%-10px)]">
+            class="bg-blue-100 dark:bg-green-500 basis-1/4 grow min-h-[350px] xl:min-h-[500px] rounded-3xl xl:rounded-sm p-[30px] xl:p-[50px] w-full xl:w-[calc(66.66%-10px)]">
             Recognise potential — pushing to become better in every aspect and corner.
           </p>
           <p
-            class="bg-gray-100 basis-1/4 grow min-h-[350px] xl:min-h-[500px] rounded-3xl xl:rounded-sm p-[30px] xl:p-[50px] w-full xl:w-[calc(66.66%-10px)]">
+            class="bg-gray-100 dark:bg-gray-500 basis-1/4 grow min-h-[350px] xl:min-h-[500px] rounded-3xl xl:rounded-sm p-[30px] xl:p-[50px] w-full xl:w-[calc(66.66%-10px)]">
             Giving you the foundations to scale —&nbsp;from world-class design and advisory to building your future team.
           </p>
           <p
-            class="bg-red-300 basis-2/4 grow min-h-[350px] xl:min-h-[500px] rounded-3xl xl:rounded-sm p-[30px] xl:p-[50px] w-full xl:w-[calc(66.66%-10px)]">
+            class="bg-red-300 dark:bg-yellow-500 basis-2/4 grow min-h-[350px] xl:min-h-[500px] rounded-3xl xl:rounded-sm p-[30px] xl:p-[50px] w-full xl:w-[calc(66.66%-10px)]">
             Increasing technology velocity and inspiring others on the team to have a blast moving forward.
           </p>
         </div>
@@ -155,10 +175,10 @@
           height="170"
           viewBox="0 0 407.000000 230.000000"
           preserveAspectRatio="xMidYMid meet"
-          class="w-full h-auto max-w-[350px] xl:max-w-[350px]"
+          class="w-full h-auto max-w-[350px] xl:max-w-[350px] dark:bg-white"
           aria-hidden="true"
         >
-          <g transform="translate(0.000000,230.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+          <g transform="translate(0.000000,230.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none">
             <path
               d="M540 1863 c-69 -78 -114 -220 -186 -583 -59 -299 -86 -402 -114 -440 -16 -21 -20 -22 -36 -10 -29 25 -52 90 -65 185 -13 99 -6 488 11 630 7 60 7 81 -3 87 -18 11 -24 -22 -36 -199 -31 -438 3 -706 91 -737 67 -24 101 60 173 429 25 132 58 285 72 340 28 111 87 245 127 288 24 26 27 47 6 47 -4 0 -23 -17 -40 -37z" />
             <path
@@ -174,7 +194,7 @@
     <footer class="w-full flex justify-between items-center">
       <div>Baked by vegard &hearts; aasen</div>
       <div class="s:hidden xl:block">
-        <div class="flex gap-10 tracking-normal leading-none" style="transform: translateY(0px) translateZ(0px);">
+        <div class="flex gap-10 tracking-normal leading-none">
           <a class="link" href="https://github.com/vegaasen" target="_blank" rel="nofollow noopener">Github</a>
           <a class="link" href="https://www.linkedin.com/in/vegaasen" target="_blank" rel="nofollow noopener">LinkedIn</a>
           <a class="link" href="https://www.strava.com/athletes/464570" target="_blank" rel="nofollow noopener">Strava</a>
@@ -217,7 +237,7 @@
 </script>
 <script defer src="https://www.googletagmanager.com/gtag/js?id=G-R6NKGPWN4F"></script>
 <script>
-  window.dataLayer = window.dataLayer || []
+  globalThis.dataLayer = globalThis.dataLayer || []
 
   function gtag() {
     dataLayer.push(arguments)
