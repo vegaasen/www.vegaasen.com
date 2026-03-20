@@ -45,6 +45,8 @@ The site may be created with new and fancy tech, or it may be just über-static 
 | [Tailwind CSS v4](https://tailwindcss.com) | Styling |
 | Plain HTML5 | Markup |
 | [Bun](https://bun.sh) | Package manager + build script runner |
+| [Vite](https://vite.dev) | Dev server with hot reload |
+| [concurrently](https://github.com/open-cli-tools/concurrently) | Run Tailwind watch + Vite in parallel during dev |
 | [SVGO](https://github.com/svg/svgo) | SVG optimisation |
 | [Squoosh](https://squoosh.app) | Image optimisation |
 | [Amazon S3](https://aws.amazon.com/s3/) | Static hosting (`eu-north-1`) |
@@ -61,7 +63,7 @@ The site may be created with new and fancy tech, or it may be just über-static 
 bun dev
 ```
 
-Then open `src/index.html` in any browser 💥.
+Starts Tailwind in watch mode and a Vite dev server at `http://localhost:5173` — the browser opens automatically and hot-reloads on any change.
 
 ## Build
 
