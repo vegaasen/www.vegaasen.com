@@ -5,22 +5,27 @@
 This is a simple static personal portfolio website built with:
 - **Tailwind CSS v4** - Styling framework
 - **Plain HTML** - Markup
-- **Node.js scripts** - Build automation
+- **Bun + TypeScript scripts** - Build automation
 
 ## Build Commands
 
 ```bash
-# Development - watches CSS for changes
-npm run dev
+# Development - watches CSS and starts Vite dev server
+bun run dev
 
 # Production build - creates minified output in ./build/
-npm run build
+bun run build
 ```
 
 The build process:
-1. Compiles Tailwind CSS from `src/index.css` to `src/v.min.css`
-2. Minifies HTML (`src/index.html` -> `src/index.min.html`)
-3. Copies assets to `./build/` folder
+1. Compiles Tailwind CSS from `src/index.css` to `src/v.min.css` (minified)
+2. Minifies HTML (`src/index.html` -> `src/index.min.html`) via `scripts/html-minify.ts`
+3. Removes old `./build/` and recreates it
+4. Moves minified HTML to `./build/index.html`
+5. Optimizes and copies images via `scripts/image-optimize.ts`
+6. Copies `src/sitemap.xml`, `src/robots.txt`, and `src/site.webmanifest` to `./build/`
+
+The `dev` command runs `tailwindcss --watch` and `vite` concurrently, serving the site locally with hot reload.
 
 **No tests or linting are configured** for this simple static site.
 
@@ -65,9 +70,10 @@ For now, manual testing via browser is sufficient.
 - Use nesting with `&` parent selector for pseudo-classes and modifiers
 - Define custom animations using `@keyframes`
 
-### JavaScript (Build Scripts)
+### TypeScript / JavaScript (Build Scripts)
 
 - Use ES modules (`"type": "module"` in package.json)
+- Scripts are TypeScript (`.ts`) run directly via `bun run`
 - Use async/await for all file operations
 - Use `node:fs/promises` for file system operations (not sync methods)
 - Use `import` statements at the top of files
@@ -91,7 +97,7 @@ For now, manual testing via browser is sufficient.
 
 ### Naming Conventions
 
-- Files: kebab-case (e.g., `html-minify.js`)
+- Files: kebab-case (e.g., `html-minify.ts`)
 - CSS classes: kebab-case (e.g., `.wave-animation`)
 - JavaScript variables/functions: camelCase (e.g., `minifyHtml`)
 - Constants: UPPER_SNAKE_CASE (e.g., `MAX_RETRIES`)
@@ -101,20 +107,28 @@ For now, manual testing via browser is sufficient.
 
 ```
 /src
-  index.html      # Main HTML file
-  index.css       # Tailwind source + custom styles
-  v.min.css       # Generated CSS (intermediate, moved to build/)
-  /i              # Images and assets (photos, logos, SVGs)
+  index.html        # Main HTML file
+  index.css         # Tailwind source + custom styles
+  v.min.css         # Generated CSS (intermediate, not committed)
+  sitemap.xml       # Site map (copied to build/)
+  robots.txt        # Robots directives (copied to build/)
+  site.webmanifest  # Web app manifest (copied to build/)
+  /i                # Images and assets (photos, logos, SVGs)
 /scripts
-  html-minify.js  # HTML minification build script
+  html-minify.ts    # HTML minification build script
+  image-optimize.ts # Image optimization build script
+/infra              # Infrastructure config (e.g. AWS)
 /.github
   /workflows
     build.yml               # CI/CD: builds and deploys to S3 on push to master
+    infra.yml               # Infrastructure workflow
     merge-auto-dependabot.yml
-/build            # Generated output (do not edit manually)
+/build              # Generated output (do not edit manually)
 tailwind.config.js  # Custom screen breakpoints
 postcss.config.js   # PostCSS config with @tailwindcss/postcss plugin
+vite.config.js      # Vite dev server config
 package.json
+bun.lock            # Bun lockfile
 ```
 
 ### Image Assets
@@ -158,9 +172,9 @@ package.json
 
 - The site is hosted on Amazon S3 (`eu-north-1` region)
 - Deployment is automated via GitHub Actions on push to `master`
-- The workflow (`.github/workflows/build.yml`) runs `npm run build` and syncs `./build/` to S3
+- The workflow (`.github/workflows/build.yml`) runs `bun run build` and syncs `./build/` to S3
 - AWS credentials are stored as GitHub Actions secrets (`AWS_S3_BUCKET`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`)
-- For manual deployment: run `npm run build` and upload `./build/` contents to S3
+- For manual deployment: run `bun run build` and upload `./build/` contents to S3
 - Set appropriate cache headers for assets
 
 ## Important Notes
