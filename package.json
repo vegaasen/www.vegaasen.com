@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "build": "echo '🛠️  Building the site' && bunx tailwindcss -i src/index.css -o ./src/v.min.css --minify && bun run scripts/html-minify.ts",
-    "postbuild": "echo '🪄  Adding magic sause' && rm -rf build 2> /dev/null && mkdir build && mv ./src/v.min.css ./build/v.min.css && mv ./src/index.min.html ./build/index.html && bun run scripts/image-optimize.ts && cp ./src/sitemap.xml ./build/sitemap.xml && cp ./src/robots.txt ./build/robots.txt && cp ./src/site.webmanifest ./build/site.webmanifest && echo '🤩  Completed! See ./build/-folder'",
+    "postbuild": "echo '🪄  Adding magic sause' && rm -rf build 2> /dev/null && mkdir build && mv ./src/index.min.html ./build/index.html && bun run scripts/image-optimize.ts && cp ./src/sitemap.xml ./build/sitemap.xml && cp ./src/robots.txt ./build/robots.txt && cp ./src/site.webmanifest ./build/site.webmanifest && echo '🤩  Completed! See ./build/-folder'",
     "dev": "concurrently 'bunx tailwindcss -i src/index.css -o ./src/v.min.css --watch' 'vite'"
   },
   "devDependencies": {
