@@ -10,7 +10,7 @@
     "@tailwindcss/cli": "^4.2.2",
     "@tailwindcss/postcss": "^4.2.2",
     "concurrently": "^9.2.1",
-    "sharp": "^0.34.5",
+    "sharp": "^0.35.2",
     "svgo": "^4.0.1",
     "tailwindcss": "^4.2.2",
     "vite": "^8.0.1"
