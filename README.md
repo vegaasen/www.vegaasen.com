@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <sub>Last deployed: <!-- LAST_DEPLOYED --> 2026-03-20 09:59 UTC
+  <sub>Last deployed: <!-- LAST_DEPLOYED --> 2026-08-31 17:41 UTC
 </p>
 
 <br/>
